@@ -54,7 +54,7 @@ public class Billetautomat {
 		System.out.println("#        " + billetpris + " kr.       #");
 		System.out.println("#                     #");
 		System.out.println("##########B##T#########");
-		System.out.println("# Du har " + (balance-billetpris) + " kr til gode       #");
+		System.out.println("# Du har " + (balance-billetpris) + " kr til gode#");
 		System.out.println("##########B##T#########");
 		System.out.println();
 
