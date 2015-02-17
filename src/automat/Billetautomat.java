@@ -1,6 +1,7 @@
 package automat;
 /**
- * Model af en simpel billetautomat til enkeltbilletter med én fast pris.
+ * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her laves
+ * nogle ændringer
  */
 public class Billetautomat {
 	private int billetpris;    // Prisen for én billet.
