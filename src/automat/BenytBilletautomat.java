@@ -34,8 +34,8 @@ public class BenytBilletautomat {
                 automat.indsætPenge(beløb);
             } else if (valg == 2) {
                 if (automat.getBalance() < automat.getBilletpris()) {
-                    System.out.println("Din balance er for lav, put flere penge i automaten"); 
-                    
+                    System.out.println("Din balance er for lav, put flere penge i automaten");
+
                 }
                 if (automat.getBalance() >= automat.getBilletpris()) {
                     automat.udskrivBillet();
@@ -55,13 +55,13 @@ public class BenytBilletautomat {
             } else if (valg == 13) {
                 System.out.print("Skriv beløb: ");
                 int beløb = tastatur.nextInt();
-                while(beløb < 0){
-                   
-                   
-                     beløb = tastatur.nextInt();
+                while (beløb < 0) {
+
+                    System.out.print("Beløbet skal være positivt eller 0, indtast et nyt beløb: ");
+                    beløb = tastatur.nextInt();
                 }
-                if(beløb >= 0){
-                automat.setBilletpris(beløb);
+                if (beløb >= 0) {
+                    automat.setBilletpris(beløb);
                 }
             } else if (valg == 14) {
                 automat.montørLogin("");;
