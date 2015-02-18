@@ -55,7 +55,14 @@ public class BenytBilletautomat {
             } else if (valg == 13) {
                 System.out.print("Skriv beløb: ");
                 int beløb = tastatur.nextInt();
+                while(beløb < 0){
+                   
+                   
+                     beløb = tastatur.nextInt();
+                }
+                if(beløb >= 0){
                 automat.setBilletpris(beløb);
+                }
             } else if (valg == 14) {
                 automat.montørLogin("");;
             } else {
