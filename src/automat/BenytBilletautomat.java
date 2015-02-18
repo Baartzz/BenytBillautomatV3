@@ -43,30 +43,36 @@ public class BenytBilletautomat {
             } else if (valg == 3) {
                 int beløb = automat.returpenge();
                 System.out.println("Du fik " + beløb + " retur retur");
+
             } else if (valg == 10) {
                 System.out.print("Skriv kode: ");
                 String kode = tastatur.next();
                 automat.montørLogin(kode);
-            } else if (valg == 11) {
-                System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
-                System.out.println("Total indkomst: " + automat.getTotal() + " kr");
-            } else if (valg == 12) {
-                automat.nulstil();
-            } else if (valg == 13) {
-                System.out.print("Skriv beløb: ");
-                int beløb = tastatur.nextInt();
-                while (beløb < 0) {
+                if (automat.erMontør() == true) {
+                    valg = tastatur.nextInt();
+                    if (valg == 11) {
+                        System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
+                        System.out.println("Total indkomst: " + automat.getTotal() + " kr");
+                    } else if (valg == 12) {
+                        automat.nulstil();
+                    } else if (valg == 13) {
+                        System.out.print("Skriv beløb: ");
+                        int beløb = tastatur.nextInt();
+                        while (beløb < 0) {
 
-                    System.out.print("Beløbet skal være positivt eller 0, indtast et nyt beløb: ");
-                    beløb = tastatur.nextInt();
+                            System.out.print("Beløbet skal være positivt eller 0, indtast et nyt beløb: ");
+                            beløb = tastatur.nextInt();
+                        }
+                        if (beløb >= 0) {
+                            automat.setBilletpris(beløb);
+                        }
+                    } else if (valg == 14) {
+                        automat.montørLogin("");;
+                    }
+                } else {
+                    System.out.println("Ugyldigt valg, prøv igen");
                 }
-                if (beløb >= 0) {
-                    automat.setBilletpris(beløb);
-                }
-            } else if (valg == 14) {
-                automat.montørLogin("");;
-            } else {
-                System.out.println("Ugyldigt valg, prøv igen");
+
             }
         }
     }
