@@ -49,6 +49,10 @@ public class BenytBilletautomat {
                 String kode = tastatur.next();
                 automat.montørLogin(kode);
                 if (automat.erMontør() == true) {
+                System.out.println("Tast 11 for at se status (montør)");
+                System.out.println("Tast 12 for at nulstille (montør)");
+                System.out.println("Tast 13 for at sætte billetpris (montør)");
+                System.out.println("Tast 14 for at logge ud af montørtilstand");
                     valg = tastatur.nextInt();
                     if (valg == 11) {
                         System.out.println("Antal billetter solgt: " + automat.getAntalBilletterSolgt());
