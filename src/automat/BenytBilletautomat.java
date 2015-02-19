@@ -3,12 +3,22 @@ package automat;
 public class BenytBilletautomat {
 
     public static void main(String[] arg) {
-        Billetautomat automat = new Billetautomat();
+       
         java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
 
         System.out.println("BenytBilletautomat version 3");
         System.out.println();
-
+        
+        Billetautomat automat = new Billetautomat();
+            System.out.println("Opsætning af billetautomat");
+            System.out.println("Skriv billet beløb:");
+                           int beløb = tastatur.nextInt();
+            
+            if(beløb < 0){
+                System.out.println("Beløbbet skal være positivt");
+            } else {
+             automat.setBilletpris(beløb);
+            }
         while (true) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
@@ -21,20 +31,16 @@ public class BenytBilletautomat {
                 System.out.println();
                 System.out.println("Tast 10 for at logge ind som montør");
             }
-            if (automat.erMontør()) {
-            /*    System.out.println("Tast 11 for at se status (montør)");
-                System.out.println("Tast 12 for at nulstille (montør)");
-                System.out.println("Tast 13 for at sætte billetpris (montør)");
-                System.out.println("Tast 14 for at logge ud af montørtilstand"); */
-            }
             int valg = tastatur.nextInt();
             tastatur.nextLine();
 
-            if (valg == 1) {
+            switch (valg) {
+                case 1:
                 System.out.print("Skriv beløb: ");
-                int beløb = tastatur.nextInt();
+                beløb = tastatur.nextInt();
                 automat.indsætPenge(beløb);
-            } else if (valg == 2) {
+                    break;
+                case 2:
                 if (automat.getBalance() < automat.getBilletpris()) {
                     System.out.println("Din balance er for lav, put flere penge i automaten");
 
@@ -42,11 +48,12 @@ public class BenytBilletautomat {
                 if (automat.getBalance() >= automat.getBilletpris()) {
                     automat.udskrivBillet();
                 }
-            } else if (valg == 3) {
-                int beløb = automat.returpenge();
+                break;
+                case 3:
+                beløb = automat.returpenge();
                 System.out.println("Du fik " + beløb + " retur retur");
-
-            } else if (valg == 10) {
+                break;
+                case 10:
                 System.out.print("Skriv kode: ");
                 String kode = tastatur.next();
                 automat.montørLogin(kode);
@@ -66,12 +73,12 @@ public class BenytBilletautomat {
                             break;
                         case 13:
                             System.out.print("Skriv beløb: ");
-                            int beløb = tastatur.nextInt();
+                            beløb = tastatur.nextInt();
 
                             while (beløb < 0) {
 
                                 System.out.print("Beløbet skal være positivt eller 0, indtast et nyt beløb: ");
-                                beløb = tastatur.nextInt();
+                               beløb = tastatur.nextInt();
                             }
                             if (beløb >= 0) {
                                 automat.setBilletpris(beløb);
@@ -86,6 +93,7 @@ public class BenytBilletautomat {
                     }
 
                 }
+            break;
             }
         }
     }

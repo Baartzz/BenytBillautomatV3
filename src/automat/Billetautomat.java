@@ -13,7 +13,7 @@ public class Billetautomat {
 	 * Opret en billetautomat der sælger billetter til 10 kr.
 	 */
 	public Billetautomat() {
-		billetpris = 10;
+		billetpris = 0;
 		balance = 0;
 		antalBilletterSolgt = 0;
 	}
