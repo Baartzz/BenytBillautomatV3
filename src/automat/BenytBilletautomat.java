@@ -69,6 +69,7 @@ public class BenytBilletautomat {
                     } else if (valg == 14) {
                         automat.montørLogin("");;
                     }
+                }
                 } else {
                     System.out.println("Ugyldigt valg, prøv igen");
                 }
@@ -76,4 +77,3 @@ public class BenytBilletautomat {
             }
         }
     }
-}
