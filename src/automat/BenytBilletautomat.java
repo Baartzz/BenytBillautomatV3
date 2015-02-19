@@ -51,7 +51,7 @@ public class BenytBilletautomat {
                 break;
                 case 3:
                 beløb = automat.returpenge();
-                System.out.println("Du fik " + beløb + " retur retur");
+                System.out.println("Du fik " + beløb + " retur");
                 break;
                 case 10:
                 System.out.print("Skriv kode: ");
