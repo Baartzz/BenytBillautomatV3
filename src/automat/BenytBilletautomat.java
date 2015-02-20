@@ -1,4 +1,4 @@
-package automat;
+ package automat;
 
 public class BenytBilletautomat {
 
@@ -38,6 +38,10 @@ public class BenytBilletautomat {
                 case 1:
                 System.out.print("Skriv beløb: ");
                 beløb = tastatur.nextInt();
+                while(beløb < 0){
+                    System.out.println("Beløbet skal være positivt");
+                    beløb = tastatur.nextInt();
+                }
                 automat.indsætPenge(beløb);
                     break;
                 case 2:
