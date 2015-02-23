@@ -10,10 +10,11 @@ public class BenytBilletautomat {
         System.out.println();
 
         boolean startup = false;
+        Billetautomat automat;
         int beløb;
-        Billetautomat automat = new Billetautomat();
+        
         while (!startup) {
-
+            automat = new Billetautomat();
             System.out.println("Opsætning af billetautomat");
             System.out.println("Efter opsætning tast enter");
             

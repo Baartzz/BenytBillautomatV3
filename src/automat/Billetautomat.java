@@ -8,7 +8,7 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
-
+          public Arraylist<> Billettyper; //ved ikke om det virker?
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
 	 */
@@ -17,6 +17,12 @@ public class Billetautomat {
 		balance = 0;
 		antalBilletterSolgt = 0;
 	}
+        
+        public void Billettyper(String bt, double pris){    //skal bruges til billettyper og priser
+          
+            
+            
+        }
 
 	/**
 	 * Giver prisen for en billet. 
