@@ -10,7 +10,7 @@ public class BenytBilletautomat {
         System.out.println();
 
         boolean startup = false;
-        Billetautomat automat;
+        Billetautomat automat = null;
         int beløb;
         
         while (!startup) {

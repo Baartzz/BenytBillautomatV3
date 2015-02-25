@@ -1,4 +1,5 @@
 package automat;
+import java.util.ArrayList;
 /**
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her laves
  * nogle ændringer
@@ -8,7 +9,11 @@ public class Billetautomat {
 	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
 	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
 	private boolean montørtilstand;
-          public Arraylist<> Billettyper; //ved ikke om det virker?
+
+    /**
+     * Billettyper indeholder string værdier.
+     */
+    public ArrayList<String> Billettyper; //ved ikke om det virker?
 	/**
 	 * Opret en billetautomat der sælger billetter til 10 kr.
 	 */
