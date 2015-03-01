@@ -14,7 +14,7 @@ public class BenytBilletautomat {
         int beløb;
         
         while (!startup) {
-            automat = new Billetautomat();
+            automat = new Billetautomat("Cykel",10,15,8);
             System.out.println("Opsætning af billetautomat");
             System.out.println("Efter opsætning tast enter");
             
@@ -28,7 +28,7 @@ public class BenytBilletautomat {
         while (true) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
-                System.out.println("En billet koster " + automat.getBilletpris() + " kroner");
+                System.out.println("En billet koster " + automat.getPrisStandard()+ " kroner");
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
@@ -51,11 +51,11 @@ public class BenytBilletautomat {
                     automat.indsætPenge(beløb);
                     break;
                 case 2:
-                    if (automat.getBalance() < automat.getBilletpris()) {
+                    if (automat.getBalance() < automat.getPrisStandard()) {
                         System.out.println("Din balance er for lav, put flere penge i automaten");
 
                     }
-                    if (automat.getBalance() >= automat.getBilletpris()) {
+                    if (automat.getBalance() >= automat.getPrisStandard()) {
                         automat.udskrivBillet();
                     }
                     break;

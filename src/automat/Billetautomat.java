@@ -1,138 +1,158 @@
 package automat;
+
 import java.util.ArrayList;
+
 /**
- * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her laves
- * nogle ændringer
+ * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her
+ * laves nogle ændringer
  */
 public class Billetautomat {
-	private int billetpris;    // Prisen for én billet.
-	private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
-	private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
-	private boolean montørtilstand;
+
+    private int billetpris;    // Prisen for én billet.
+    private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
+    private boolean montørtilstand;
+    private String billetNavn;
+    private int prisStandard;
+    private int prisSommer;
+    private int prisVinter;
 
     /**
      * Billettyper indeholder string værdier.
      */
-    public ArrayList<String> Billettyper; //ved ikke om det virker?
-	/**
-	 * Opret en billetautomat der sælger billetter til 10 kr.
-	 */
-	public Billetautomat() {
-		billetpris = 0;
-		balance = 0;
-		antalBilletterSolgt = 0;
-	}
-        
-        public void Billettyper(String bt, double pris){    //skal bruges til billettyper og priser
-          
-            
-            
+    /**
+     * Opret en billetautomat der sælger billetter til 10 kr.
+     */
+    public Billetautomat(String billetNavn,int prisStandard, int prisSommer, int prisVinter) {
+        this.billetNavn = billetNavn;
+        this.prisStandard = prisStandard;
+        this.prisVinter = prisVinter;
+        this.prisSommer = prisSommer;
+        balance = 0;
+        antalBilletterSolgt = 0;
+
+    }
+
+    /**
+     * Returnerer billetnavnet
+     */
+    public String getBilletNavn() {
+       return billetNavn;
+    }
+    /**
+     * Returnerer standard pris
+     */
+    public int getPrisStandard(){
+        return prisStandard;
+    }
+    /**
+     * Returnerer prisSommer
+     */
+    public int getPrisSommer(){
+        return prisSommer;
+    }
+    /**
+     * Returnerer prisVinter 
+     */
+    public int getPrisVinter(){
+        return prisVinter;
+    }
+    
+    public String toString(){
+        return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
+    }
+    /**
+     * Modtag nogle penge (i kroner) fra en kunde.
+     */
+    public void indsætPenge(int beløb) {
+        balance = balance + beløb;
+    }
+
+    /**
+     * Giver balancen (beløbet maskinen har modtaget til den næste billet).
+     */
+    public int getBalance() {
+        return balance;
+    }
+
+    /**
+     * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
+     */
+    public void udskrivBillet() {
+        if (balance < billetpris) {
+            System.out.println("Du mangler at indbetale nogle penge");
         }
+        System.out.println("##########B##T#########");
+        System.out.println("# BlueJ Trafikselskab #");
+        System.out.println("#                     #");
+        System.out.println("#        Billet       #");
+        System.out.println("#        " + billetpris + " kr.       #");
+        System.out.println("#                     #");
+        System.out.println("##########B##T#########");
+        System.out.println("# Du har " + (balance - billetpris) + " kr til gode#");
+        System.out.println("##########B##T#########");
+        System.out.println();
 
-	/**
-	 * Giver prisen for en billet. 
-	 */
-	public int getBilletpris() {
-		int resultat = billetpris;
-		return resultat;
-	}
+        antalBilletterSolgt = antalBilletterSolgt + 1;
+        balance = balance - billetpris; // Billetter koster 10 kroner
+    }
 
-	/**
-	 * Modtag nogle penge (i kroner) fra en kunde.
-	 */
-	public void indsætPenge(int beløb) {
-		balance = balance + beløb;
-	}
+    public int returpenge() {
+        int returbeløb = balance;
+        balance = 0;
+        return returbeløb;
+    }
 
-	/**
-	 * Giver balancen (beløbet maskinen har modtaget til den næste billet).
-	 */
-	public int getBalance() {
-		return balance;
-	}
+    void montørLogin(String adgangskode) {
+        if ("1234".equals(adgangskode)) {
+            montørtilstand = true;
+            System.out.println("Montørtilstand aktiveret");
+            System.out.println("Du kan nu angive billetpris");
+        } else {
+            montørtilstand = false;
+            System.out.println("Montørtilstand deaktiveret");
+        }
+    }
 
-	/**
-	 * Udskriv en billet.
-	 * Opdater total og nedskriv balancen med billetprisen
-	 */
-	public void udskrivBillet() {
-		if (balance<billetpris) {
-			System.out.println("Du mangler at indbetale nogle penge");
-		}
-		System.out.println("##########B##T#########");
-		System.out.println("# BlueJ Trafikselskab #");
-		System.out.println("#                     #");
-		System.out.println("#        Billet       #");
-		System.out.println("#        " + billetpris + " kr.       #");
-		System.out.println("#                     #");
-		System.out.println("##########B##T#########");
-		System.out.println("# Du har " + (balance-billetpris) + " kr til gode#");
-		System.out.println("##########B##T#########");
-		System.out.println();
+    public int getTotal() {
+        if (montørtilstand) {
+            return billetpris * antalBilletterSolgt;
+        } else {
+            System.out.println("Afvist - log ind først");
+            return 0;
+        }
+    }
 
-		antalBilletterSolgt = antalBilletterSolgt + 1;
-		balance = balance - billetpris; // Billetter koster 10 kroner
-	}
+    public int getAntalBilletterSolgt() {
+        if (montørtilstand) {
+            return antalBilletterSolgt;
+        } else {
+            System.out.println("Afvist - log ind først");
+            return 0;
+        }
+    }
 
+    public void setBilletpris(int billetpris) {
+        this.billetpris = billetpris;
+    }
 
-	public int returpenge() {
-		int returbeløb = balance;
-		balance = 0;
-		return returbeløb;
-	}
+    public void nulstil() {
+        if (montørtilstand) {
+            antalBilletterSolgt = 0;
+        } else {
+            System.out.println("Afvist - log ind først");
+        }
+    }
 
-	
-	void montørLogin(String adgangskode) {
-		if ("1234".equals(adgangskode)) {
-			montørtilstand = true;
-			System.out.println("Montørtilstand aktiveret");
-			System.out.println("Du kan nu angive billetpris");
-		} else {
-			montørtilstand = false;
-			System.out.println("Montørtilstand deaktiveret");
-		}
-	}
+    public void setAntalBilletterSolgt(int antalBilletterSolgt) {
+        if (montørtilstand) {
+            this.antalBilletterSolgt = antalBilletterSolgt;
+        } else {
+            System.out.println("Afvist - log ind først");
+        }
+    }
 
-
-	public int getTotal() {
-		if (montørtilstand) {
-			return billetpris * antalBilletterSolgt;
-		} else {
-			System.out.println("Afvist - log ind først");
-			return 0;
-		}
-	}
-
-	public int getAntalBilletterSolgt() {
-		if (montørtilstand) {
-			return antalBilletterSolgt;
-		} else {
-			System.out.println("Afvist - log ind først");
-			return 0;
-		}
-	}
-
-	public void setBilletpris(int billetpris) {
-		this.billetpris = billetpris;
-	}
-
-	public void nulstil() {
-		if (montørtilstand) {
-			antalBilletterSolgt = 0;
-		} else {
-			System.out.println("Afvist - log ind først");
-		}
-	}
-
-	public void setAntalBilletterSolgt(int antalBilletterSolgt) {
-		if (montørtilstand) {
-			this.antalBilletterSolgt = antalBilletterSolgt;
-		} else {
-			System.out.println("Afvist - log ind først");
-		}
-	}
-
-	public boolean erMontør() {
-		return montørtilstand;
-	}
+    public boolean erMontør() {
+        return montørtilstand;
+    }
 }
