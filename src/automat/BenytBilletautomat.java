@@ -12,23 +12,30 @@ public class BenytBilletautomat {
         boolean startup = false;
         Billetautomat automat = null;
         int beløb;
-        
-        while (!startup) {
-            automat = new Billetautomat("Cykel",10,15,8);
-            System.out.println("Opsætning af billetautomat");
-            System.out.println("Efter opsætning tast enter");
-            
-            String choice = tastatur.nextLine();
 
-            if (choice.equals("")) {
+        while (!startup) {
+            System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
+            String navn = tastatur.nextLine();
+            
+            if (navn.equals("")) {
                 startup = true;
+               
+            } else {
+            System.out.print("Indtast standard pris: ");
+            int standardPris = tastatur.nextInt();
+            System.out.print("Indtast sommer pris: ");
+            int sommerPris = tastatur.nextInt();
+            System.out.print("Indtast vinter pris: ");
+            int vinterPris = tastatur.nextInt();
+            automat = new Billetautomat(navn, standardPris, sommerPris, vinterPris);
             }
+           
 
         }
         while (true) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
-                System.out.println("En billet koster " + automat.getPrisStandard()+ " kroner");
+                System.out.println("En billet koster " + automat.getPrisStandard() + " kroner");
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");

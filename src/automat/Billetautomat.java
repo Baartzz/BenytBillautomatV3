@@ -11,17 +11,17 @@ public class Billetautomat {
     private int billetpris;    // Prisen for én billet.
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
-    private boolean montørtilstand;
+    private boolean montørtilstand = false;
     private String billetNavn;
     private int prisStandard;
     private int prisSommer;
     private int prisVinter;
-
+    private int indkøbskurv;
     /**
      * Billettyper indeholder string værdier.
      */
     /**
-     * Opret en billetautomat der sælger billetter til 10 kr.
+     * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer pris, int vinter pris
      */
     public Billetautomat(String billetNavn,int prisStandard, int prisSommer, int prisVinter) {
         this.billetNavn = billetNavn;
@@ -30,6 +30,8 @@ public class Billetautomat {
         this.prisSommer = prisSommer;
         balance = 0;
         antalBilletterSolgt = 0;
+        indkøbskurv = 0;
+ 
 
     }
 
