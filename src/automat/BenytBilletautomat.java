@@ -1,5 +1,7 @@
 package automat;
 
+import java.util.ArrayList;
+
 public class BenytBilletautomat {
 
     public static void main(String[] arg) {
@@ -10,16 +12,18 @@ public class BenytBilletautomat {
         System.out.println();
 
         boolean startup = false;
-        Billetautomat automat = null;
+        Billetautomat automat = new Billetautomat ("Start",0,0,0);
+        ArrayList<Billetautomat> Billetter = Billetter = new ArrayList<Billetautomat>();
         int beløb;
-
+        
         while (!startup) {
             System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
-            String navn = " ";
-            navn =tastatur.nextLine();
+            
+            String navn =tastatur.nextLine();
             
             if (navn.equals("")) {
                 startup = true;
+
                
             } else {
             System.out.print("Indtast standard pris: ");
@@ -29,7 +33,8 @@ public class BenytBilletautomat {
             System.out.print("Indtast vinter pris: ");
             int vinterPris = tastatur.nextInt();
             String temp = tastatur.nextLine();
-            automat = new Billetautomat(navn, standardPris, sommerPris, vinterPris);
+            
+            Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
 
             }
            
@@ -38,7 +43,8 @@ public class BenytBilletautomat {
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
-                System.out.println("En billet koster " + automat.getPrisStandard() + " kroner");
+                System.out.println("Der er følgende billeter til rådighed: ");
+                for(int i = 0; i < Billetter.size(); i++) System.out.println(Billetter.get(i).getBilletNavn() + " " + Billetter.get(i).getPrisSommer());
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
