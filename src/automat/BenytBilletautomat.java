@@ -1,10 +1,10 @@
 package automat;
 
 import java.util.ArrayList;
-
+import java.io.*;
 public class BenytBilletautomat {
 
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws IOException {
 
         java.util.Scanner tastatur = new java.util.Scanner(System.in);  // forbered
 
@@ -16,7 +16,17 @@ public class BenytBilletautomat {
         ArrayList<Billetautomat> Billetter = Billetter = new ArrayList<Billetautomat>();
         int beløb;
         
-        while (!startup) {
+        BufferedReader ind = new BufferedReader (new FileReader("billettyper.txt"));
+        String linje = ind.readLine();
+        
+        while(linje != null){
+            String[] bidder = linje.split(" ");
+            Billetter.add(new Billetautomat(bidder[0],Integer.parseInt(bidder[1]),Integer.parseInt(bidder[2]),Integer.parseInt(bidder[3])));
+            linje = ind.readLine();
+        }
+        startup = true;
+        
+       /* while (!startup) {
             System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
             
             String navn =tastatur.nextLine();
@@ -37,9 +47,7 @@ public class BenytBilletautomat {
             Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
 
             }
-           
-
-        }
+        }*/
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
