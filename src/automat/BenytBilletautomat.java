@@ -28,6 +28,7 @@ public class BenytBilletautomat {
             int sommerPris = tastatur.nextInt();
             System.out.print("Indtast vinter pris: ");
             int vinterPris = tastatur.nextInt();
+            String temp = tastatur.nextLine();
             automat = new Billetautomat(navn, standardPris, sommerPris, vinterPris);
 
             }
@@ -115,5 +116,6 @@ public class BenytBilletautomat {
                     break;
             }
         }
+        
     }
-}
+   }
