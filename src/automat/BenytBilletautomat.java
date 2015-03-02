@@ -15,7 +15,7 @@ public class BenytBilletautomat {
 
         while (!startup) {
             System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
-            String navn = "";
+            String navn = " ";
             navn =tastatur.nextLine();
             
             if (navn.equals("")) {
