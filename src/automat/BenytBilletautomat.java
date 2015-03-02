@@ -15,7 +15,8 @@ public class BenytBilletautomat {
 
         while (!startup) {
             System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
-            String navn = tastatur.nextLine();
+            String navn = "";
+            navn =tastatur.nextLine();
             
             if (navn.equals("")) {
                 startup = true;
@@ -28,11 +29,12 @@ public class BenytBilletautomat {
             System.out.print("Indtast vinter pris: ");
             int vinterPris = tastatur.nextInt();
             automat = new Billetautomat(navn, standardPris, sommerPris, vinterPris);
+
             }
            
 
         }
-        while (true) {
+        while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("En billet koster " + automat.getPrisStandard() + " kroner");

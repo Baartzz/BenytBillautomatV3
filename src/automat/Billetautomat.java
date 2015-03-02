@@ -1,7 +1,7 @@
 package automat;
 
 import java.util.ArrayList;
-
+import java.io.*;
 /**
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her
  * laves nogle ændringer
@@ -16,7 +16,8 @@ public class Billetautomat {
     private int prisStandard;
     private int prisSommer;
     private int prisVinter;
-    private int indkøbskurv;
+
+
     /**
      * Billettyper indeholder string værdier.
      */
@@ -30,12 +31,10 @@ public class Billetautomat {
         this.prisSommer = prisSommer;
         balance = 0;
         antalBilletterSolgt = 0;
-        indkøbskurv = 0;
+         
  
-
     }
-
-    /**
+      /**
      * Returnerer billetnavnet
      */
     public String getBilletNavn() {
@@ -59,13 +58,30 @@ public class Billetautomat {
     public int getPrisVinter(){
         return prisVinter;
     }
-    
     public String toString(){
         return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
     }
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
      */
+    
+    public void transcript (String temp) throws IOException{
+         
+        File fil = new File("transcript.txt");
+        FileWriter out = null;
+        if (!fil.exists() ) {
+            out = new FileWriter("transcript.txt");
+            PrintWriter info = new PrintWriter("transcript.txt");
+        } else {
+             PrintWriter info = new PrintWriter("transcript.txt");
+             
+             info.println(temp);
+             
+             info.close();
+        }
+
+      
+    }
     public void indsætPenge(int beløb) {
         balance = balance + beløb;
     }
