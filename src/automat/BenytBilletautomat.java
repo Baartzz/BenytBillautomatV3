@@ -44,7 +44,7 @@ public class BenytBilletautomat {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("Der er følgende billeter til rådighed: ");
-                for(int i = 0; i < Billetter.size(); i++) System.out.println(Billetter.get(i).getBilletNavn() + " " + Billetter.get(i).getPrisSommer());
+                for(int i = 0; i < Billetter.size(); i++) System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisStandard());
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
