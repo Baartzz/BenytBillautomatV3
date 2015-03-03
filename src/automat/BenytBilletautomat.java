@@ -19,58 +19,57 @@ public class BenytBilletautomat {
         String billettypeIBrug = "Standard";
 
         File billettyper = new File("billettyper.txt");
-        
-        if(billettyper.exists()){
-        BufferedReader ind = new BufferedReader(new FileReader(billettyper));
-        String linje = ind.readLine();
 
-        while (linje != null) {
-            String[] bidder = linje.split(" ");
-            Billetter.add(new Billetautomat(bidder[0], Integer.parseInt(bidder[1]), Integer.parseInt(bidder[2]), Integer.parseInt(bidder[3])));
-            linje = ind.readLine();
-        }
-        startup = true;
+        if (billettyper.exists()) {
+            BufferedReader ind = new BufferedReader(new FileReader(billettyper));
+            String linje = ind.readLine();
+
+            while (linje != null) {
+                String[] bidder = linje.split(" ");
+                Billetter.add(new Billetautomat(bidder[0], Integer.parseInt(bidder[1]), Integer.parseInt(bidder[2]), Integer.parseInt(bidder[3])));
+                linje = ind.readLine();
+            }
+            startup = true;
         } else {
-        while (!startup) {
-         System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
-            
-         String navn =tastatur.nextLine();
-            
-         if (navn.equals("")) {
-         startup = true;
+            while (!startup) {
+                System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
 
-               
-         } else {
-         System.out.print("Indtast standard pris: ");
-         int standardPris = tastatur.nextInt();
-         System.out.print("Indtast sommer pris: ");
-         int sommerPris = tastatur.nextInt();
-         System.out.print("Indtast vinter pris: ");
-         int vinterPris = tastatur.nextInt();
-         String temp = tastatur.nextLine();
-            
-         Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
+                String navn = tastatur.nextLine();
 
-         }
-         }
+                if (navn.equals("")) {
+                    startup = true;
+
+                } else {
+                    System.out.print("Indtast standard pris: ");
+                    int standardPris = tastatur.nextInt();
+                    System.out.print("Indtast sommer pris: ");
+                    int sommerPris = tastatur.nextInt();
+                    System.out.print("Indtast vinter pris: ");
+                    int vinterPris = tastatur.nextInt();
+                    String temp = tastatur.nextLine();
+
+                    Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
+
+                }
+            }
         }
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("Der er følgende billeter til rådighed: ");
-                if(billettypeIBrug.equals("Standard")){
-                for (int i = 0; i < Billetter.size(); i++) {
-                    System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisStandard());
+                if (billettypeIBrug.equals("Standard")) {
+                    for (int i = 0; i < Billetter.size(); i++) {
+                        System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisStandard());
+                    }
+                } else if (billettypeIBrug.equals("Sommer")) {
+                    for (int i = 0; i < Billetter.size(); i++) {
+                        System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisSommer());
+                    }
+                } else if (billettypeIBrug.equals("Vinter")) {
+                    for (int i = 0; i < Billetter.size(); i++) {
+                        System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisVinter());
+                    }
                 }
-                        }else if(billettypeIBrug.equals("Sommer")){
-                            for (int i = 0; i < Billetter.size(); i++) {
-                    System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisSommer());
-                }
-                        }else if(billettypeIBrug.equals("Vinter")){
-                             for (int i = 0; i < Billetter.size(); i++) {
-                    System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisSommer());
-                }
-                        }
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
@@ -130,21 +129,23 @@ public class BenytBilletautomat {
                                 System.out.println("2. Sommerpris");
                                 System.out.println("3. Vinterpris");
                                 System.out.println("Indtast 1-3, afslut med enter");
-                                
+
                                 int billetvalg = tastatur.nextInt();
-                                switch(billetvalg) {
+                                switch (billetvalg) {
                                     case 1:
-                                      billettypeIBrug = "Standard";
-                                      break;
+                                        billettypeIBrug = "Standard";
+                                        break;
                                     case 2:
                                         billettypeIBrug = "Sommer";
                                         break;
                                     case 3:
                                         billettypeIBrug = "Vinter";
                                         break;
+                                    default:
+                                        System.out.println("Ugyldigt valg");
+
                                 }
-                                
-                                
+
                                 break;
                             case 14:
                                 automat.montørLogin(" ");
