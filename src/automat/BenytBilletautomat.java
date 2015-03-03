@@ -17,7 +17,10 @@ public class BenytBilletautomat {
         ArrayList<Billetautomat> Billetter = Billetter = new ArrayList<Billetautomat>();
         int beløb;
 
-        BufferedReader ind = new BufferedReader(new FileReader("billettyper.txt"));
+        File billettyper = new File("billettyper.txt");
+        
+        if(billettyper.exists()){
+        BufferedReader ind = new BufferedReader(new FileReader(billettyper));
         String linje = ind.readLine();
 
         while (linje != null) {
@@ -26,8 +29,8 @@ public class BenytBilletautomat {
             linje = ind.readLine();
         }
         startup = true;
-
-        /* while (!startup) {
+        } else {
+        while (!startup) {
          System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
             
          String navn =tastatur.nextLine();
@@ -48,7 +51,8 @@ public class BenytBilletautomat {
          Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
 
          }
-         }*/
+         }
+        }
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
