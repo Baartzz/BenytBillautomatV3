@@ -55,6 +55,7 @@ public class BenytBilletautomat {
                 }
             }
         }
+        double total= 0;
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
@@ -84,7 +85,7 @@ public class BenytBilletautomat {
                 
             }
             int valg = tastatur.nextInt();
-            double total= 0;
+            
             tastatur.nextLine();
 
             switch (valg) {
@@ -107,28 +108,31 @@ public class BenytBilletautomat {
                             case 1:
                                 System.out.println("Hvor mange vil du have?");
                                 int antal = tastatur.nextInt();
-                                for(int i = 0; i <= antal; i++)Indkøbskurv.add(0);
+                                for(int i = 1; i <= antal; i++)Indkøbskurv.add(0);
                                 
                                 break;
                             case 2:
                                 System.out.println("Hvor mange vil du have?");
                                  antal = tastatur.nextInt();
-                                for(int i = 0; i <= antal; i++) Indkøbskurv.add(1);
+                                for(int i = 1; i <= antal; i++) Indkøbskurv.add(1);
                                 break;
                             case 3:
                                 System.out.println("Hvor mange vil du have?");
                                  antal = tastatur.nextInt();
-                                for(int i = 0; i <= antal; i++) Indkøbskurv.add(2);
+                                for(int i = 1; i <= antal; i++) Indkøbskurv.add(2);
                                 break;
                                 
                         }
+                       System.out.println(Indkøbskurv.toString());
+                       System.out.println("Start forfra? Skriv y, ellers tryk enter");
                         String debug = tastatur.nextLine();
-                        valg2= tastatur.nextLine();        
+                        valg2= tastatur.nextLine();
+                        if(valg2.equals("y")) for(int i = 0 ; i<=Indkøbskurv.size()-1; i++) Indkøbskurv.remove(i);
                         
                     }
                     
                      
-                    for(int i = 1; i <= Indkøbskurv.size()-1; i++){
+                    for(int i = 0; i <= Indkøbskurv.size()-1; i++){
                         if(Indkøbskurv.get(i) == 0){
                             total = total + Billetter.get(0).getPrisStandard();
                         }else if(Indkøbskurv.get(i) == 1){
@@ -138,7 +142,7 @@ public class BenytBilletautomat {
                         }
                     System.out.println("Det bliver total: " + total + " kr.");
                     }
-                    
+                    break;
                 case 3:
                                      
                     
@@ -146,19 +150,27 @@ public class BenytBilletautomat {
                         System.out.println("Din balance er for lav, put flere penge i automaten");
 
                     }
+                    System.out.println(total);
                     if (automat.getBalance() >= total) {
-                        for(int i = 0; i <= Indkøbskurv.size(); i++){
-                        if(Indkøbskurv.get(i) == 0){
-                            automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
-                        }else if(Indkøbskurv.get(i) == 1){
-                            automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
-                        }else if(Indkøbskurv.get(i) == 2){
-                           automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
+                        for(int i = 0; i <= Indkøbskurv.size()-1; i++){
+                        switch(Indkøbskurv.get(i)){
+                            case 0:
+                              automat.udskrivBillet(Billetter.get(0).getBilletNavn(),Billetter.get(0).getPrisStandard());
+                                break;
+                            case 1:
+                                automat.udskrivBillet(Billetter.get(1).getBilletNavn(),Billetter.get(1).getPrisStandard());
+                                break;
+                            case 2:
+                                automat.udskrivBillet(Billetter.get(2).getBilletNavn(),Billetter.get(2).getPrisStandard());
+                                break;
                         }
-                        
+                      
                     }
-                    break;
+                    
                     }
+                    for(int i = 0; i <= Indkøbskurv.size()-1; i++)Indkøbskurv.remove(i);
+                break;
+            
                 case 4:
                     beløb = automat.returpenge();
                     System.out.println("Du fik " + beløb + " retur");

@@ -103,16 +103,15 @@ public class Billetautomat {
         System.out.println("##########B##T#########");
         System.out.println("# BlueJ Trafikselskab #");
         System.out.println("#                     #");
-        System.out.println("#        " + billetnavnprint +"       #");
+        System.out.println("#     " + billetnavnprint +"     #");
         System.out.println("#        " + billetprisprint + " kr.       #");
         System.out.println("#                     #");
         System.out.println("##########B##T#########");
-        System.out.println("# Du har " + (balance - billetprisprint) + " kr til gode#");
         System.out.println("##########B##T#########");
         System.out.println();
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
-        balance = balance - billetpris; // Billetter koster 10 kroner
+        balance = balance - billetprisprint; // Billetter koster 10 kroner
     }
 
     public int returpenge() {
