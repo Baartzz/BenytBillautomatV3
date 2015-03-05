@@ -2,6 +2,7 @@ package automat;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.lang.reflect.Array;
 
 public class BenytBilletautomat {
 
@@ -14,7 +15,8 @@ public class BenytBilletautomat {
 
         boolean startup = false;
         Billetautomat automat = new Billetautomat("Start", 0, 0, 0);
-        ArrayList<Billetautomat> Billetter = Billetter = new ArrayList<Billetautomat>();
+        ArrayList<Billetautomat> Billetter = new ArrayList<Billetautomat>();
+        ArrayList<Integer> Indkøbskurv = new ArrayList<Integer>();
         int beløb;
         String billettypeIBrug = "Standard";
 
@@ -71,14 +73,18 @@ public class BenytBilletautomat {
                     }
                 }
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
+                if(Indkøbskurv.size() < 0) System.out.println("Din indkøbskurv er tom");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
                 System.out.println("Tast 2 for at udskrive din billet");
                 System.out.println("Tast 3 for at få returpengene");
                 System.out.println();
                 System.out.println("Tast 10 for at logge ind som montør");
+                
+                
             }
             int valg = tastatur.nextInt();
+            double total= 0;
             tastatur.nextLine();
 
             switch (valg) {
@@ -92,15 +98,68 @@ public class BenytBilletautomat {
                     automat.indsætPenge(beløb);
                     break;
                 case 2:
-                    if (automat.getBalance() < automat.getPrisStandard()) {
+                    String valg2 = " ";
+                    while(!valg2.equals("")){
+                        System.out.println("Hvilken billettype vil du have?");
+                        for(int i = 0; i < Billetter.size(); i++) System.out.println(i+1 + ". " + Billetter.get(i).getBilletNavn() + ": " + Billetter.get(i).getPrisStandard());
+                        int billetkøb = tastatur.nextInt();
+                        switch(billetkøb) {
+                            case 1:
+                                System.out.println("Hvor mange vil du have?");
+                                int antal = tastatur.nextInt();
+                                for(int i = 0; i <= antal; i++)Indkøbskurv.add(0);
+                                
+                                break;
+                            case 2:
+                                System.out.println("Hvor mange vil du have?");
+                                 antal = tastatur.nextInt();
+                                for(int i = 0; i <= antal; i++) Indkøbskurv.add(1);
+                                break;
+                            case 3:
+                                System.out.println("Hvor mange vil du have?");
+                                 antal = tastatur.nextInt();
+                                for(int i = 0; i <= antal; i++) Indkøbskurv.add(2);
+                                break;
+                                
+                        }
+                        String debug = tastatur.nextLine();
+                        valg2= tastatur.nextLine();        
+                        
+                    }
+                    
+                     
+                    for(int i = 1; i <= Indkøbskurv.size()-1; i++){
+                        if(Indkøbskurv.get(i) == 0){
+                            total = total + Billetter.get(0).getPrisStandard();
+                        }else if(Indkøbskurv.get(i) == 1){
+                            total = total + Billetter.get(1).getPrisStandard();
+                        }else if(Indkøbskurv.get(i) == 2){
+                            total = total + Billetter.get(2).getPrisStandard();
+                        }
+                    System.out.println("Det bliver total: " + total + " kr.");
+                    }
+                    
+                case 3:
+                                     
+                    
+                    if (automat.getBalance() < total) {
                         System.out.println("Din balance er for lav, put flere penge i automaten");
 
                     }
-                    if (automat.getBalance() >= automat.getPrisStandard()) {
-                        automat.udskrivBillet();
+                    if (automat.getBalance() >= total) {
+                        for(int i = 0; i <= Indkøbskurv.size(); i++){
+                        if(Indkøbskurv.get(i) == 0){
+                            automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
+                        }else if(Indkøbskurv.get(i) == 1){
+                            automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
+                        }else if(Indkøbskurv.get(i) == 2){
+                           automat.udskrivBillet(Billetter.get(i).getBilletNavn(),Billetter.get(i).getPrisStandard());
+                        }
+                        
                     }
                     break;
-                case 3:
+                    }
+                case 4:
                     beløb = automat.returpenge();
                     System.out.println("Du fik " + beløb + " retur");
                     break;
