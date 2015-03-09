@@ -33,6 +33,8 @@ public class BenytBilletautomat {
             }
             startup = true;
         } else {
+            FileWriter fil = new FileWriter("billettyper.txt");
+            PrintWriter text = new PrintWriter(fil);
             while (!startup) {
                 System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
 
@@ -42,6 +44,7 @@ public class BenytBilletautomat {
                     startup = true;
 
                 } else {
+                    try{
                     System.out.print("Indtast standard pris: ");
                     int standardPris = tastatur.nextInt();
                     System.out.print("Indtast sommer pris: ");
@@ -51,9 +54,14 @@ public class BenytBilletautomat {
                     String temp = tastatur.nextLine();
 
                     Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
+                    text.println(navn + " " + standardPris + " " + sommerPris + " " + vinterPris);
+                    }catch(Exception u){
+                        u.getStackTrace();
+                    }
 
                 }
             }
+         text.close();
         }
         double total= 0;
         while (startup) {
@@ -77,8 +85,9 @@ public class BenytBilletautomat {
                 if(Indkøbskurv.size() < 0) System.out.println("Din indkøbskurv er tom");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
-                System.out.println("Tast 2 for at udskrive din billet");
-                System.out.println("Tast 3 for at få returpengene");
+                System.out.println("Tast 2 for at vælge billetter");
+                System.out.println("Tast 3 for at printe billetter ud");
+                System.out.println("Tast 4 for at få penge retur");
                 System.out.println();
                 System.out.println("Tast 10 for at logge ind som montør");
                 
@@ -127,7 +136,7 @@ public class BenytBilletautomat {
                        System.out.println("Start forfra? Skriv y, ellers tryk enter");
                         String debug = tastatur.nextLine();
                         valg2= tastatur.nextLine();
-                        if(valg2.equals("y")) for(int i = 0 ; i<=Indkøbskurv.size()-1; i++) Indkøbskurv.remove(i);
+                        if(valg2.equals("y")) Indkøbskurv.clear();
                         
                     }
                     
@@ -164,11 +173,14 @@ public class BenytBilletautomat {
                                 automat.udskrivBillet(Billetter.get(2).getBilletNavn(),Billetter.get(2).getPrisStandard());
                                 break;
                         }
+                        
                       
                     }
                     
                     }
-                    for(int i = 0; i <= Indkøbskurv.size()-1; i++)Indkøbskurv.remove(i);
+                    Indkøbskurv.clear();
+                    
+                    total = 0;
                 break;
             
                 case 4:
