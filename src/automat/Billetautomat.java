@@ -16,7 +16,7 @@ public class Billetautomat {
     private int prisStandard;
     private int prisSommer;
     private int prisVinter;
-
+    private int totalSolgt;
 
     /**
      * Billettyper indeholder string værdier.
@@ -31,6 +31,7 @@ public class Billetautomat {
         this.prisSommer = prisSommer;
         balance = 0;
         antalBilletterSolgt = 0;
+        totalSolgt = 0;
          
  
     }
@@ -111,7 +112,9 @@ public class Billetautomat {
         System.out.println();
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
-        balance = balance - billetprisprint; // Billetter koster 10 kroner
+        totalSolgt = totalSolgt + billetprisprint;
+        
+        balance = balance - billetprisprint; 
     }
 
     public int returpenge() {
@@ -133,7 +136,7 @@ public class Billetautomat {
 
     public int getTotal() {
         if (montørtilstand) {
-            return billetpris * antalBilletterSolgt;
+            return totalSolgt;
         } else {
             System.out.println("Afvist - log ind først");
             return 0;
