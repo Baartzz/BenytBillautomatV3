@@ -101,9 +101,16 @@ public class BenytBilletautomat {
             switch (valg) {
                 case 1:
                     System.out.print("Skriv beløb: ");
+                    beløb = 0;
+                    try{
                     beløb = tastatur.nextInt();
-                    while (beløb < 0) {
+                    }catch(Exception u){
+                        System.out.println("Der skete en fejl, prøv igen");
+                        beløb = 0;
+                    }
+                    while (beløb <= 0) {
                         System.out.println("Beløbet skal være positivt");
+                        String temp = tastatur.nextLine();
                         beløb = tastatur.nextInt();
                     }
                     automat.indsætPenge(beløb);
@@ -141,12 +148,19 @@ public class BenytBilletautomat {
                                 break;
 
                         }
-                        System.out.println(Indkøbskurv.toString());
+                        System.out.println("Din indkøbskurv indeholder nu: ");
+                        for(int i = 0; i <= Indkøbskurv.size()-1; i++){
+                            if(Indkøbskurv.get(i) == 0) System.out.print(Billetter.get(0).getBilletNavn() + " | ");
+                            if(Indkøbskurv.get(i) == 1) System.out.print(Billetter.get(1).getBilletNavn() + " | ");
+                            if(Indkøbskurv.get(i) == 2) System.out.print(Billetter.get(2).getBilletNavn() + " | ");
+                        }
+                        System.out.println(" ");
                         System.out.println("Start forfra? Skriv y, ellers tryk enter");
                         String debug = tastatur.nextLine();
                         valg2 = tastatur.nextLine();
                         if (valg2.equals("y")) {
                             Indkøbskurv.clear();
+                            break;
                         }
 
                     }
