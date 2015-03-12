@@ -2,6 +2,7 @@ package automat;
 
 import java.util.ArrayList;
 import java.io.*;
+
 /**
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her
  * laves nogle ændringer
@@ -22,9 +23,10 @@ public class Billetautomat {
      * Billettyper indeholder string værdier.
      */
     /**
-     * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer pris, int vinter pris
+     * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer
+     * pris, int vinter pris
      */
-    public Billetautomat(String billetNavn,int prisStandard, int prisSommer, int prisVinter) {
+    public Billetautomat(String billetNavn, int prisStandard, int prisSommer, int prisVinter) {
         this.billetNavn = billetNavn;
         this.prisStandard = prisStandard;
         this.prisVinter = prisVinter;
@@ -32,57 +34,62 @@ public class Billetautomat {
         balance = 0;
         antalBilletterSolgt = 0;
         totalSolgt = 0;
-         
- 
+
     }
-      /**
+
+    /**
      * Returnerer billetnavnet
      */
     public String getBilletNavn() {
-       return billetNavn;
+        return billetNavn;
     }
+
     /**
      * Returnerer standard pris
      */
-    public int getPrisStandard(){
+    public int getPrisStandard() {
         return prisStandard;
     }
+
     /**
      * Returnerer prisSommer
      */
-    public int getPrisSommer(){
+    public int getPrisSommer() {
         return prisSommer;
     }
+
     /**
-     * Returnerer prisVinter 
+     * Returnerer prisVinter
      */
-    public int getPrisVinter(){
+    public int getPrisVinter() {
         return prisVinter;
     }
-    public String toString(){
+
+    public String toString() {
         return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
     }
+
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
      */
-    
-    public void transcript (String temp) throws IOException{
-         
+
+    public void transcript(String temp) throws IOException {
+
         File fil = new File("transcript.txt");
         FileWriter out = null;
-        if (!fil.exists() ) {
+        if (!fil.exists()) {
             out = new FileWriter("transcript.txt");
             PrintWriter info = new PrintWriter("transcript.txt");
         } else {
-             PrintWriter info = new PrintWriter("transcript.txt");
-             
-             info.println(temp);
-             
-             info.close();
+            PrintWriter info = new PrintWriter("transcript.txt");
+
+            info.println(temp);
+
+            info.close();
         }
 
-      
     }
+
     public void indsætPenge(int beløb) {
         balance = balance + beløb;
     }
@@ -97,14 +104,14 @@ public class Billetautomat {
     /**
      * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
      */
-    public void udskrivBillet(String billetnavnprint,int billetprisprint) {
+    public void udskrivBillet(String billetnavnprint, int billetprisprint) {
         if (balance < billetprisprint) {
             System.out.println("Du mangler at indbetale nogle penge");
         }
         System.out.println("##########B##T#########");
         System.out.println("# BlueJ Trafikselskab #");
         System.out.println("#                     #");
-        System.out.println("#     " + billetnavnprint +"     #");
+        System.out.println("#     " + billetnavnprint + "     #");
         System.out.println("#        " + billetprisprint + " kr.       #");
         System.out.println("#                     #");
         System.out.println("##########B##T#########");
@@ -113,8 +120,8 @@ public class Billetautomat {
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
         totalSolgt = totalSolgt + billetprisprint;
-        
-        balance = balance - billetprisprint; 
+
+        balance = balance - billetprisprint;
     }
 
     public int returpenge() {
@@ -175,6 +182,5 @@ public class Billetautomat {
     public boolean erMontør() {
         return montørtilstand;
     }
-    
-    
+
 }
