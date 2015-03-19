@@ -101,9 +101,9 @@ public class BenytBilletautomat {
                 case 1:
                     System.out.print("Skriv beløb: ");
                     beløb = 0;
-                    try{
-                    beløb = tastatur.nextInt();
-                    }catch(Exception u){
+                    try {
+                        beløb = tastatur.nextInt();
+                    } catch (Exception u) {
                         System.out.println("Der skete en fejl, prøv igen");
                         beløb = 0;
                     }
@@ -120,27 +120,26 @@ public class BenytBilletautomat {
                         System.out.println("Hvilken billettype vil du have?");
                         automat.ContainsTickets();
                         int billetkøb = tastatur.nextInt();
-                       if(billetkøb <= automat.amountOfTickets()){
-                           System.out.println("Hvor mange vil du have?");
-                           int antal = tastatur.nextInt();
-                                for (int i = 1; i <= antal; i++) {
-                                    automat.ShoppingCartAdd(billetkøb,automat.getPrisStandard(billetkøb));
-                       }
-                       }else{
-                               System.out.println("Ikke gyldig billet");
-                               }
+                        if (billetkøb <= automat.amountOfTickets()) {
+                            System.out.println("Hvor mange vil du have?");
+                            int antal = tastatur.nextInt();
+                            for (int i = 1; i <= antal; i++) {
+                                automat.ShoppingCartAdd(billetkøb, automat.getPrisStandard(billetkøb));
+                            }
+                        } else {
+                            System.out.println("Ikke gyldig billet");
+                        }
                         automat.ShoppingCartContains();
                         System.out.println("Start forfra? Skriv y, ellers tryk enter");
                         String debug = tastatur.nextLine();
                         valg2 = tastatur.nextLine();
                         if (valg2.equals("y")) {
-                           automat.ShoppingCartClear();
+                            automat.ShoppingCartClear();
                             break;
                         }
 
                     }
 
-                   
                     System.out.println("Det bliver total: " + automat.ShoppingCartContainsTotal() + " kr.");
 
                     break;
@@ -150,18 +149,14 @@ public class BenytBilletautomat {
                         System.out.println("Din balance er for lav, put flere penge i automaten");
 
                     }
-                    
+
                     if (automat.getBalance() >= automat.ShoppingCartContainsTotal()) {
-                        
+
                         automat.printAllTickets();
-                        
-                                                   
-                        
 
                     }
                     automat.ShoppingCartClear();
 
-                    
                     break;
 
                 case 4:
