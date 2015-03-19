@@ -120,13 +120,19 @@ public class BenytBilletautomat {
                         System.out.println("Hvilken billettype vil du have?");
                         automat.ContainsTickets();
                         int billetkøb = tastatur.nextInt();
-                        if (billetkøb <= automat.amountOfTickets()) {
+                        if (billetkøb > 0 && billetkøb <= automat.amountOfTickets()) {
                             System.out.println("Hvor mange vil du have?");
                             int antal = tastatur.nextInt();
                             for (int i = 1; i <= antal; i++) {
-                                if(automat.årstid() == 0) automat.ShoppingCartAdd(billetkøb, automat.getPrisStandard(billetkøb));
-                                if(automat.årstid() == 1) automat.ShoppingCartAdd(billetkøb, automat.getPrisSommer(billetkøb));
-                                if(automat.årstid() == 2) automat.ShoppingCartAdd(billetkøb, automat.getPrisVinter(billetkøb));
+                                if (automat.årstid() == 0) {
+                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisStandard(billetkøb));
+                                }
+                                if (automat.årstid() == 1) {
+                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisSommer(billetkøb));
+                                }
+                                if (automat.årstid() == 2) {
+                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisVinter(billetkøb));
+                                }
                             }
                         } else {
                             System.out.println("Ikke gyldig billet");
@@ -200,7 +206,7 @@ public class BenytBilletautomat {
                                         automat.setÅrstid(1);
                                         break;
                                     case 3:
-                                       automat.setÅrstid(2);
+                                        automat.setÅrstid(2);
                                         break;
                                     default:
                                         System.out.println("Ugyldigt valg");

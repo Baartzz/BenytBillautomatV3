@@ -240,5 +240,155 @@ public class BilletautomatTest extends TestCase {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of createTicket method, of class Billetautomat.
+     */
+    public void testCreateTicket() {
+        System.out.println("createTicket");
+        String name = "";
+        int pris1 = 0;
+        int pris2 = 0;
+        int pris3 = 0;
+        Billetautomat instance = new Billetautomat();
+        instance.createTicket(name, pris1, pris2, pris3);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ContainsTickets method, of class Billetautomat.
+     */
+    public void testContainsTickets() {
+        System.out.println("ContainsTickets");
+        Billetautomat instance = new Billetautomat();
+        instance.ContainsTickets();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of amountOfTickets method, of class Billetautomat.
+     */
+    public void testAmountOfTickets() {
+        System.out.println("amountOfTickets");
+        Billetautomat instance = new Billetautomat();
+        int expResult = 0;
+        int result = instance.amountOfTickets();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartAdd method, of class Billetautomat.
+     */
+    public void testShoppingCartAdd() {
+        System.out.println("ShoppingCartAdd");
+        int i = 0;
+        int pris = 0;
+        Billetautomat instance = new Billetautomat();
+        instance.ShoppingCartAdd(i, pris);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartContainsTotal method, of class Billetautomat.
+     */
+    public void testShoppingCartContainsTotal() {
+        System.out.println("ShoppingCartContainsTotal");
+        Billetautomat instance = new Billetautomat();
+        int expResult = 0;
+        int result = instance.ShoppingCartContainsTotal();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartClear method, of class Billetautomat.
+     */
+    public void testShoppingCartClear() {
+        System.out.println("ShoppingCartClear");
+        Billetautomat instance = new Billetautomat();
+        instance.ShoppingCartClear();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartContains method, of class Billetautomat.
+     */
+    public void testShoppingCartContains() {
+        System.out.println("ShoppingCartContains");
+        Billetautomat instance = new Billetautomat();
+        instance.ShoppingCartContains();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartSize method, of class Billetautomat.
+     */
+    public void testShoppingCartSize() {
+        System.out.println("ShoppingCartSize");
+        Billetautomat instance = new Billetautomat();
+        int expResult = 0;
+        int result = instance.ShoppingCartSize();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of ShoppingCartItem method, of class Billetautomat.
+     */
+    public void testShoppingCartItem() {
+        System.out.println("ShoppingCartItem");
+        int i = 0;
+        Billetautomat instance = new Billetautomat();
+        int expResult = 0;
+        int result = instance.ShoppingCartItem(i);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of printAllTickets method, of class Billetautomat.
+     */
+    public void testPrintAllTickets() {
+        System.out.println("printAllTickets");
+        Billetautomat instance = new Billetautomat();
+        instance.printAllTickets();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setÅrstid method, of class Billetautomat.
+     */
+    public void testSetÅrstid() {
+        System.out.println("set\u00c5rstid");
+        int i = 0;
+        Billetautomat instance = new Billetautomat();
+        instance.setÅrstid(i);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of årstid method, of class Billetautomat.
+     */
+    public void testÅrstid() {
+        System.out.println("\u00e5rstid");
+        Billetautomat instance = new Billetautomat();
+        int expResult = 0;
+        int result = instance.årstid();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

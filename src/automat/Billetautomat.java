@@ -70,8 +70,12 @@ public class Billetautomat {
         return Billetter.toString();
     }
     public void ContainsTickets(){
-        for (Billettyper billetnavn :  Billetter){
-        System.out.println(billetnavn);
+        int i = 1;
+        for (Billettyper value :  Billetter){
+        if(årstid == 0)System.out.println(i+ ". " + value.getBilletNavn() + " pris: " + value.getPrisStandard());
+        if(årstid == 1)System.out.println(i +". " + value.getBilletNavn() + " pris: " + value.getPrisSommer());
+        if(årstid == 2)System.out.println(i +". " + value.getBilletNavn() + value.getPrisVinter());
+        i++;
        }
     }
     public int amountOfTickets(){
