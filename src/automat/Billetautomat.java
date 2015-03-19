@@ -16,9 +16,6 @@ public class Billetautomat {
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private boolean montørtilstand = false;
     private String billetNavn;
-    private int prisStandard;
-    private int prisSommer;
-    private int prisVinter;
     private int totalSolgt;
 
     ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
@@ -204,7 +201,7 @@ public class Billetautomat {
     /**
      * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
      */
-    public void udskrivBillet(String billetnavnprint, int billetprisprint) {
+    private void udskrivBillet(String billetnavnprint, int billetprisprint) {
         if (balance < billetprisprint) {
             System.out.println("Du mangler at indbetale nogle penge");
         }
