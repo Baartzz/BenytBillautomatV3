@@ -15,7 +15,7 @@ public class BenytBilletautomat {
 
         boolean startup = false;
         Billetautomat automat = new Billetautomat();
-        ArrayList<Integer> Indkøbskurv = new ArrayList<Integer>();
+
         int beløb;
         String billettypeIBrug = "Standard";
 
@@ -81,7 +81,7 @@ public class BenytBilletautomat {
                     }
                 }
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
-                if (Indkøbskurv.size() < 0) {
+                if (automat.ShoppingCartSize() < 0) {
                     System.out.println("Din indkøbskurv er tom");
                 }
                 System.out.println();
@@ -120,87 +120,48 @@ public class BenytBilletautomat {
                         System.out.println("Hvilken billettype vil du have?");
                         automat.ContainsTickets();
                         int billetkøb = tastatur.nextInt();
-                        switch (billetkøb) {
-                            case 1:
-                                System.out.println("Hvor mange vil du have?");
-                                int antal = tastatur.nextInt();
+                       if(billetkøb <= automat.amountOfTickets()){
+                           System.out.println("Hvor mange vil du have?");
+                           int antal = tastatur.nextInt();
                                 for (int i = 1; i <= antal; i++) {
-                                    Indkøbskurv.add(0);
-                                }
-
-                                break;
-                            case 2:
-                                System.out.println("Hvor mange vil du have?");
-                                antal = tastatur.nextInt();
-                                for (int i = 1; i <= antal; i++) {
-                                    Indkøbskurv.add(1);
-                                }
-                                break;
-                            case 3:
-                                System.out.println("Hvor mange vil du have?");
-                                antal = tastatur.nextInt();
-                                for (int i = 1; i <= antal; i++) {
-                                    Indkøbskurv.add(2);
-                                }
-                                break;
-
-                        }
-                        System.out.println("Din indkøbskurv indeholder nu: ");
-                        for(int i = 0; i <= Indkøbskurv.size()-1; i++){
-                            if(Indkøbskurv.get(i) == 0) System.out.print(automat.getBilletNavn(0) + " | ");
-                            if(Indkøbskurv.get(i) == 1) System.out.print(automat.getBilletNavn(1) + " | ");
-                            if(Indkøbskurv.get(i) == 2) System.out.print(automat.getBilletNavn(2) + " | ");
-                        }
-                        System.out.println(" ");
+                                    automat.ShoppingCartAdd(billetkøb,automat.getPrisStandard(billetkøb));
+                       }
+                       }else{
+                               System.out.println("Ikke gyldig billet");
+                               }
+                        automat.ShoppingCartContains();
                         System.out.println("Start forfra? Skriv y, ellers tryk enter");
                         String debug = tastatur.nextLine();
                         valg2 = tastatur.nextLine();
                         if (valg2.equals("y")) {
-                            Indkøbskurv.clear();
+                           automat.ShoppingCartClear();
                             break;
                         }
 
                     }
 
-                    for (int i = 0; i <= Indkøbskurv.size() - 1; i++) {
-                        if (Indkøbskurv.get(i) == 0) {
-                            total = total + automat.getPrisStandard(0);
-                        } else if (Indkøbskurv.get(i) == 1) {
-                            total = total + automat.getPrisStandard(1);
-                        } else if (Indkøbskurv.get(i) == 2) {
-                            total = total + automat.getPrisStandard(2);
-                        }
-                    }
-                    System.out.println("Det bliver total: " + total + " kr.");
+                   
+                    System.out.println("Det bliver total: " + automat.ShoppingCartContainsTotal() + " kr.");
 
                     break;
                 case 3:
 
-                    if (automat.getBalance() < total) {
+                    if (automat.getBalance() < automat.ShoppingCartContainsTotal()) {
                         System.out.println("Din balance er for lav, put flere penge i automaten");
 
                     }
-                    System.out.println(total);
-                    if (automat.getBalance() >= total) {
-                        for (int i = 0; i <= Indkøbskurv.size() - 1; i++) {
-                            switch (Indkøbskurv.get(i)) {
-                                case 0:
-                                    automat.udskrivBillet(automat.getBilletNavn(0), automat.getPrisStandard(0));
-                                    break;
-                                case 1:
-                                    automat.udskrivBillet(automat.getBilletNavn(1), automat.getPrisStandard(1));
-                                    break;
-                                case 2:
-                                    automat.udskrivBillet(automat.getBilletNavn(2), automat.getPrisStandard(2));
-                                    break;
-                            }
-
-                        }
+                    
+                    if (automat.getBalance() >= automat.ShoppingCartContainsTotal()) {
+                        
+                        automat.printAllTickets();
+                        
+                                                   
+                        
 
                     }
-                    Indkøbskurv.clear();
+                    automat.ShoppingCartClear();
 
-                    total = 0;
+                    
                     break;
 
                 case 4:

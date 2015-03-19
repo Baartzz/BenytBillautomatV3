@@ -11,6 +11,7 @@ public class Billetautomat {
 
     private int billetpris;    // Prisen for én billet.
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int KurvTotal;
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private boolean montørtilstand = false;
     private String billetNavn;
@@ -19,7 +20,8 @@ public class Billetautomat {
     private int prisVinter;
     private int totalSolgt;
     ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
-    Billettyper Billet = new Billettyper("Start", 0,0,0);
+    Billettyper Billet = new Billettyper(null, 0,0,0);
+    ArrayList<Integer> ShoppingCart = new ArrayList<Integer>();
   
 
     /**
@@ -35,7 +37,6 @@ public class Billetautomat {
         totalSolgt = 0;
         
     }
-
     public void createTicket(String name, int pris1, int pris2, int pris3){
        Billetter.add(new Billettyper(name, pris1, pris2, pris3));
     }
@@ -45,28 +46,24 @@ public class Billetautomat {
     public String getBilletNavn(int i) {
         return Billetter.get(i).getBilletNavn();
     }
-
     /**
      * Returnerer standard pris
      */
     public int getPrisStandard(int i) {
         return Billetter.get(i).getPrisStandard();
     }
-
     /**
      * Returnerer prisSommer
      */
     public int getPrisSommer(int i) {
         return Billetter.get(i).getPrisSommer();
     }
-
     /**
      * Returnerer prisVinter
      */
     public int getPrisVinter(int i) {
         return Billetter.get(i).getPrisVinter();
     }
-
     public String toString() {
         return Billetter.toString();
     }
@@ -82,7 +79,30 @@ public class Billetautomat {
      * Modtag nogle penge (i kroner) fra en kunde.
      */
 
-
+    public void ShoppingCartAdd(int i, int pris){
+        ShoppingCart.add(i);
+        KurvTotal = KurvTotal + pris;
+}
+    public int ShoppingCartContainsTotal(){
+        return KurvTotal;
+    }
+    public void ShoppingCartClear(){
+        ShoppingCart.clear();
+        KurvTotal = 0;
+    }
+    public void ShoppingCartContains(){
+        for(Integer value: ShoppingCart){
+            System.out.print(getBilletNavn(value) + " | ");
+            
+        }
+        System.out.println("");
+    }
+    public int ShoppingCartSize(){
+        return ShoppingCart.size()-1;
+    }
+    public int ShoppingCartItem(int i){
+        return ShoppingCart.get(i);
+    }
     public void indsætPenge(int beløb) {
         balance = balance + beløb;
     }
@@ -94,10 +114,16 @@ public class Billetautomat {
         return balance;
     }
 
+    
+    public void printAllTickets(){
+       for (Integer value : ShoppingCart){
+        udskrivBillet(getBilletNavn(value), getPrisStandard(value));
+       }
+    }
     /**
      * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
      */
-    public void udskrivBillet(String billetnavnprint, int billetprisprint) {
+        public void udskrivBillet(String billetnavnprint, int billetprisprint) {
         if (balance < billetprisprint) {
             System.out.println("Du mangler at indbetale nogle penge");
         }
