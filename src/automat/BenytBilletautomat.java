@@ -17,7 +17,7 @@ public class BenytBilletautomat {
         Billetautomat automat = new Billetautomat();
 
         int beløb;
-        String billettypeIBrug = "Standard";
+        automat.setÅrstid(0);
 
         File billettyper = new File("billettyper.txt");
 
@@ -67,15 +67,15 @@ public class BenytBilletautomat {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("Der er følgende billeter til rådighed: ");
-                if (billettypeIBrug.equals("Standard")) {
+                if (automat.årstid() == 0) {
                     for (int i = 0; i < automat.amountOfTickets(); i++) {
                         System.out.println(automat.getBilletNavn(i) + " pris: " + automat.getPrisStandard(i));
                     }
-                } else if (billettypeIBrug.equals("Sommer")) {
+                } else if (automat.årstid() == 1) {
                     for (int i = 0; i < automat.amountOfTickets(); i++) {
                         System.out.println(automat.getBilletNavn(i) + " pris: " + automat.getPrisSommer(i));
                     }
-                } else if (billettypeIBrug.equals("Vinter")) {
+                } else if (automat.årstid() == 2) {
                     for (int i = 0; i < automat.amountOfTickets(); i++) {
                         System.out.println(automat.getBilletNavn(i) + " pris: " + automat.getPrisVinter(i));
                     }
@@ -124,7 +124,9 @@ public class BenytBilletautomat {
                             System.out.println("Hvor mange vil du have?");
                             int antal = tastatur.nextInt();
                             for (int i = 1; i <= antal; i++) {
-                                automat.ShoppingCartAdd(billetkøb, automat.getPrisStandard(billetkøb));
+                                if(automat.årstid() == 0) automat.ShoppingCartAdd(billetkøb, automat.getPrisStandard(billetkøb));
+                                if(automat.årstid() == 1) automat.ShoppingCartAdd(billetkøb, automat.getPrisSommer(billetkøb));
+                                if(automat.årstid() == 2) automat.ShoppingCartAdd(billetkøb, automat.getPrisVinter(billetkøb));
                             }
                         } else {
                             System.out.println("Ikke gyldig billet");
@@ -192,13 +194,13 @@ public class BenytBilletautomat {
                                 int billetvalg = tastatur.nextInt();
                                 switch (billetvalg) {
                                     case 1:
-                                        billettypeIBrug = "Standard";
+                                        automat.setÅrstid(0);
                                         break;
                                     case 2:
-                                        billettypeIBrug = "Sommer";
+                                        automat.setÅrstid(1);
                                         break;
                                     case 3:
-                                        billettypeIBrug = "Vinter";
+                                       automat.setÅrstid(2);
                                         break;
                                     default:
                                         System.out.println("Ugyldigt valg");

@@ -11,6 +11,7 @@ public class Billetautomat {
 
     private int billetpris;    // Prisen for én billet.
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int årstid;
     private int KurvTotal;
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private boolean montørtilstand = false;
@@ -19,6 +20,7 @@ public class Billetautomat {
     private int prisSommer;
     private int prisVinter;
     private int totalSolgt;
+
     ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
     Billettyper Billet = new Billettyper(null, 0,0,0);
     ArrayList<Integer> ShoppingCart = new ArrayList<Integer>();
@@ -117,7 +119,10 @@ public class Billetautomat {
     
     public void printAllTickets(){
        for (Integer value : ShoppingCart){
-        udskrivBillet(getBilletNavn(value), getPrisStandard(value));
+           if(årstid== 0)udskrivBillet(getBilletNavn(value), getPrisStandard(value));
+                                if(årstid== 1) udskrivBillet(getBilletNavn(value), getPrisSommer(value));
+                                if(årstid == 2) udskrivBillet(getBilletNavn(value), getPrisVinter(value));
+        
        }
     }
     /**
@@ -196,6 +201,12 @@ public class Billetautomat {
         }
     }
 
+    public void setÅrstid(int i){
+        årstid = i;
+    }
+    public int årstid(){
+        return årstid;
+    }
     public boolean erMontør() {
         return montørtilstand;
     }
