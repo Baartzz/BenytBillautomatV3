@@ -7,33 +7,43 @@ package automat;
 
 /**
  *
- * @author Thomas
+ * @author Thomas M. Elbo
  */
 public class Billettyper {
+    
     private String billetNavn;
-    private int pris;
+    private int prisStandard;
     private int prisSommer;
     private int prisVinter;
     
-    public Billettyper(int pris, int prisSommer, int prisVinter, String billetNavn){
-        this.billetNavn = billetNavn;
-        this.pris = pris;
-        this.prisVinter = prisVinter;
-        this.prisSommer = prisSommer;
+    public Billettyper(String navn, int pris1, int pris2, int pris3){
+        this.billetNavn = navn;
+        this.prisStandard = pris1;
+        this.prisSommer = pris2;
+        this.prisVinter = pris3;
     }
     
-    public String toString(){
-        return "Billetnavn: " + billetNavn + " standardpris: " + pris + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
-    }
-    
-    public String getBilletnavn(){
+    public String getBilletNavn() {
         return billetNavn;
     }
     
-    public int getPrisSommer(){
+    public int getPrisStandard(){
+        return prisStandard;
+    }
+    public int getPrisSommer() {
         return prisSommer;
     }
-    public int getPrisVinter(){
+
+    /**
+     * Returnerer prisVinter
+     */
+    public int getPrisVinter() {
         return prisVinter;
     }
+
+    public String toString() {
+        return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
+    }
+    
+    
 }

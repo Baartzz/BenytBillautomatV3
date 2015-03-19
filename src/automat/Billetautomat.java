@@ -2,6 +2,7 @@ package automat;
 
 import java.util.ArrayList;
 import java.io.*;
+
 /**
  * Model af en simpel billetautomat til enkeltbilletter med én fast pris. Her
  * laves nogle ændringer
@@ -10,77 +11,103 @@ public class Billetautomat {
 
     private int billetpris;    // Prisen for én billet.
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
+    private int årstid;
+    private int KurvTotal;
     private int antalBilletterSolgt; // Antal billetter automaten i alt har solgt
     private boolean montørtilstand = false;
     private String billetNavn;
     private int prisStandard;
     private int prisSommer;
     private int prisVinter;
+    private int totalSolgt;
 
+    ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
+    Billettyper Billet = new Billettyper(null, 0,0,0);
+    ArrayList<Integer> ShoppingCart = new ArrayList<Integer>();
+  
 
     /**
      * Billettyper indeholder string værdier.
      */
     /**
-     * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer pris, int vinter pris
+     * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer
+     * pris, int vinter pris
      */
-    public Billetautomat(String billetNavn,int prisStandard, int prisSommer, int prisVinter) {
-        this.billetNavn = billetNavn;
-        this.prisStandard = prisStandard;
-        this.prisVinter = prisVinter;
-        this.prisSommer = prisSommer;
+    public Billetautomat() {
         balance = 0;
         antalBilletterSolgt = 0;
-         
- 
+        totalSolgt = 0;
+        
     }
-      /**
+    public void createTicket(String name, int pris1, int pris2, int pris3){
+       Billetter.add(new Billettyper(name, pris1, pris2, pris3));
+    }
+    /**
      * Returnerer billetnavnet
      */
-    public String getBilletNavn() {
-       return billetNavn;
+    public String getBilletNavn(int i) {
+        return Billetter.get(i).getBilletNavn();
     }
     /**
      * Returnerer standard pris
      */
-    public int getPrisStandard(){
-        return prisStandard;
+    public int getPrisStandard(int i) {
+        return Billetter.get(i).getPrisStandard();
     }
     /**
      * Returnerer prisSommer
      */
-    public int getPrisSommer(){
-        return prisSommer;
+    public int getPrisSommer(int i) {
+        return Billetter.get(i).getPrisSommer();
     }
     /**
-     * Returnerer prisVinter 
+     * Returnerer prisVinter
      */
-    public int getPrisVinter(){
-        return prisVinter;
+    public int getPrisVinter(int i) {
+        return Billetter.get(i).getPrisVinter();
     }
-    public String toString(){
-        return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
+    public String toString() {
+        return Billetter.toString();
+    }
+    public void ContainsTickets(){
+        int i = 1;
+        for (Billettyper value :  Billetter){
+        if(årstid == 0)System.out.println(i+ ". " + value.getBilletNavn() + " pris: " + value.getPrisStandard());
+        if(årstid == 1)System.out.println(i +". " + value.getBilletNavn() + " pris: " + value.getPrisSommer());
+        if(årstid == 2)System.out.println(i +". " + value.getBilletNavn() + value.getPrisVinter());
+        i++;
+       }
+    }
+    public int amountOfTickets(){
+        return Billetter.size();
     }
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
      */
-    
-    public void transcript (String temp) throws IOException{
-         
-        File fil = new File("transcript.txt");
-        FileWriter out = null;
-        if (!fil.exists() ) {
-            out = new FileWriter("transcript.txt");
-            PrintWriter info = new PrintWriter("transcript.txt");
-        } else {
-             PrintWriter info = new PrintWriter("transcript.txt");
-             
-             info.println(temp);
-             
-             info.close();
-        }
 
-      
+    public void ShoppingCartAdd(int i, int pris){
+        ShoppingCart.add(i);
+        KurvTotal = KurvTotal + pris;
+}
+    public int ShoppingCartContainsTotal(){
+        return KurvTotal;
+    }
+    public void ShoppingCartClear(){
+        ShoppingCart.clear();
+        KurvTotal = 0;
+    }
+    public void ShoppingCartContains(){
+        for(Integer value: ShoppingCart){
+            System.out.print(getBilletNavn(value) + " | ");
+            
+        }
+        System.out.println("");
+    }
+    public int ShoppingCartSize(){
+        return ShoppingCart.size()-1;
+    }
+    public int ShoppingCartItem(int i){
+        return ShoppingCart.get(i);
     }
     public void indsætPenge(int beløb) {
         balance = balance + beløb;
@@ -93,26 +120,36 @@ public class Billetautomat {
         return balance;
     }
 
+    
+    public void printAllTickets(){
+       for (Integer value : ShoppingCart){
+           if(årstid== 0)udskrivBillet(getBilletNavn(value), getPrisStandard(value));
+                                if(årstid== 1) udskrivBillet(getBilletNavn(value), getPrisSommer(value));
+                                if(årstid == 2) udskrivBillet(getBilletNavn(value), getPrisVinter(value));
+        
+       }
+    }
     /**
      * Udskriv en billet. Opdater total og nedskriv balancen med billetprisen
      */
-    public void udskrivBillet() {
-        if (balance < billetpris) {
+        public void udskrivBillet(String billetnavnprint, int billetprisprint) {
+        if (balance < billetprisprint) {
             System.out.println("Du mangler at indbetale nogle penge");
         }
         System.out.println("##########B##T#########");
         System.out.println("# BlueJ Trafikselskab #");
         System.out.println("#                     #");
-        System.out.println("#        Billet       #");
-        System.out.println("#        " + billetpris + " kr.       #");
+        System.out.println("#     " + billetnavnprint + "     #");
+        System.out.println("#        " + billetprisprint + " kr.       #");
         System.out.println("#                     #");
         System.out.println("##########B##T#########");
-        System.out.println("# Du har " + (balance - billetpris) + " kr til gode#");
         System.out.println("##########B##T#########");
         System.out.println();
 
         antalBilletterSolgt = antalBilletterSolgt + 1;
-        balance = balance - billetpris; // Billetter koster 10 kroner
+        totalSolgt = totalSolgt + billetprisprint;
+
+        balance = balance - billetprisprint;
     }
 
     public int returpenge() {
@@ -134,7 +171,7 @@ public class Billetautomat {
 
     public int getTotal() {
         if (montørtilstand) {
-            return billetpris * antalBilletterSolgt;
+            return totalSolgt;
         } else {
             System.out.println("Afvist - log ind først");
             return 0;
@@ -150,13 +187,11 @@ public class Billetautomat {
         }
     }
 
-    public void setBilletpris(int billetpris) {
-        this.billetpris = billetpris;
-    }
-
+    
     public void nulstil() {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
+            totalSolgt = 0;
         } else {
             System.out.println("Afvist - log ind først");
         }
@@ -170,9 +205,14 @@ public class Billetautomat {
         }
     }
 
+    public void setÅrstid(int i){
+        årstid = i;
+    }
+    public int årstid(){
+        return årstid;
+    }
     public boolean erMontør() {
         return montørtilstand;
     }
-    
-    
+
 }
