@@ -18,6 +18,9 @@ public class Billetautomat {
     private int prisSommer;
     private int prisVinter;
     private int totalSolgt;
+    ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
+    Billettyper Billet = new Billettyper("Start", 0,0,0);
+  
 
     /**
      * Billettyper indeholder string værdier.
@@ -26,69 +29,59 @@ public class Billetautomat {
      * Kræver 4 argumenter, string billetNavn, int standard pris, int sommer
      * pris, int vinter pris
      */
-    public Billetautomat(String billetNavn, int prisStandard, int prisSommer, int prisVinter) {
-        this.billetNavn = billetNavn;
-        this.prisStandard = prisStandard;
-        this.prisVinter = prisVinter;
-        this.prisSommer = prisSommer;
+    public Billetautomat() {
         balance = 0;
         antalBilletterSolgt = 0;
         totalSolgt = 0;
-
+        
     }
 
+    public void createTicket(String name, int pris1, int pris2, int pris3){
+       Billetter.add(new Billettyper(name, pris1, pris2, pris3));
+    }
     /**
      * Returnerer billetnavnet
      */
-    public String getBilletNavn() {
-        return billetNavn;
+    public String getBilletNavn(int i) {
+        return Billetter.get(i).getBilletNavn();
     }
 
     /**
      * Returnerer standard pris
      */
-    public int getPrisStandard() {
-        return prisStandard;
+    public int getPrisStandard(int i) {
+        return Billetter.get(i).getPrisStandard();
     }
 
     /**
      * Returnerer prisSommer
      */
-    public int getPrisSommer() {
-        return prisSommer;
+    public int getPrisSommer(int i) {
+        return Billetter.get(i).getPrisSommer();
     }
 
     /**
      * Returnerer prisVinter
      */
-    public int getPrisVinter() {
-        return prisVinter;
+    public int getPrisVinter(int i) {
+        return Billetter.get(i).getPrisVinter();
     }
 
     public String toString() {
-        return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
+        return Billetter.toString();
     }
-
+    public void ContainsTickets(){
+        for (Billettyper billetnavn :  Billetter){
+        System.out.println(billetnavn);
+       }
+    }
+    public int amountOfTickets(){
+        return Billetter.size();
+    }
     /**
      * Modtag nogle penge (i kroner) fra en kunde.
      */
 
-    public void transcript(String temp) throws IOException {
-
-        File fil = new File("transcript.txt");
-        FileWriter out = null;
-        if (!fil.exists()) {
-            out = new FileWriter("transcript.txt");
-            PrintWriter info = new PrintWriter("transcript.txt");
-        } else {
-            PrintWriter info = new PrintWriter("transcript.txt");
-
-            info.println(temp);
-
-            info.close();
-        }
-
-    }
 
     public void indsætPenge(int beløb) {
         balance = balance + beløb;
@@ -159,10 +152,7 @@ public class Billetautomat {
         }
     }
 
-    public void setBilletpris(int billetpris) {
-        this.billetpris = billetpris;
-    }
-
+    
     public void nulstil() {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
