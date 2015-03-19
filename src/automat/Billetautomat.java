@@ -182,6 +182,7 @@ public class Billetautomat {
     public void nulstil() {
         if (montørtilstand) {
             antalBilletterSolgt = 0;
+            totalSolgt = 0;
         } else {
             System.out.println("Afvist - log ind først");
         }
