@@ -147,9 +147,9 @@ public class BenytBilletautomat {
                         }
                         System.out.println("Din indkøbskurv indeholder nu: ");
                         for(int i = 0; i <= Indkøbskurv.size()-1; i++){
-                            if(Indkøbskurv.get(i) == 0) System.out.print(automat.getBilletNavn(i) + " | ");
-                            if(Indkøbskurv.get(i) == 1) System.out.print(automat.getBilletNavn(i) + " | ");
-                            if(Indkøbskurv.get(i) == 2) System.out.print(automat.getBilletNavn(i) + " | ");
+                            if(Indkøbskurv.get(i) == 0) System.out.print(automat.getBilletNavn(0) + " | ");
+                            if(Indkøbskurv.get(i) == 1) System.out.print(automat.getBilletNavn(1) + " | ");
+                            if(Indkøbskurv.get(i) == 2) System.out.print(automat.getBilletNavn(2) + " | ");
                         }
                         System.out.println(" ");
                         System.out.println("Start forfra? Skriv y, ellers tryk enter");
@@ -164,11 +164,11 @@ public class BenytBilletautomat {
 
                     for (int i = 0; i <= Indkøbskurv.size() - 1; i++) {
                         if (Indkøbskurv.get(i) == 0) {
-                            total = total + automat.getPrisStandard(i);
+                            total = total + automat.getPrisStandard(0);
                         } else if (Indkøbskurv.get(i) == 1) {
-                            total = total + automat.getPrisStandard(i);
+                            total = total + automat.getPrisStandard(1);
                         } else if (Indkøbskurv.get(i) == 2) {
-                            total = total + automat.getPrisStandard(i);
+                            total = total + automat.getPrisStandard(2);
                         }
                     }
                     System.out.println("Det bliver total: " + total + " kr.");
@@ -185,13 +185,13 @@ public class BenytBilletautomat {
                         for (int i = 0; i <= Indkøbskurv.size() - 1; i++) {
                             switch (Indkøbskurv.get(i)) {
                                 case 0:
-                                    automat.udskrivBillet(automat.getBilletNavn(0), automat.getPrisStandard(i));
+                                    automat.udskrivBillet(automat.getBilletNavn(0), automat.getPrisStandard(0));
                                     break;
                                 case 1:
-                                    automat.udskrivBillet(automat.getBilletNavn(1), automat.getPrisStandard(i));
+                                    automat.udskrivBillet(automat.getBilletNavn(1), automat.getPrisStandard(1));
                                     break;
                                 case 2:
-                                    automat.udskrivBillet(automat.getBilletNavn(2), automat.getPrisStandard(i));
+                                    automat.udskrivBillet(automat.getBilletNavn(2), automat.getPrisStandard(2));
                                     break;
                             }
 
