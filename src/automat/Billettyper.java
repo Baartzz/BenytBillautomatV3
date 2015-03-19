@@ -10,26 +10,27 @@ package automat;
  * @author Thomas M. Elbo
  */
 public class Billettyper {
-    
+
     private String billetNavn;
     private int prisStandard;
     private int prisSommer;
     private int prisVinter;
-    
-    public Billettyper(String navn, int pris1, int pris2, int pris3){
+
+    public Billettyper(String navn, int pris1, int pris2, int pris3) {
         this.billetNavn = navn;
         this.prisStandard = pris1;
         this.prisSommer = pris2;
         this.prisVinter = pris3;
     }
-    
+
     public String getBilletNavn() {
         return billetNavn;
     }
-    
-    public int getPrisStandard(){
+
+    public int getPrisStandard() {
         return prisStandard;
     }
+
     public int getPrisSommer() {
         return prisSommer;
     }
@@ -44,6 +45,5 @@ public class Billettyper {
     public String toString() {
         return "Billetnavn: " + billetNavn + " standardpris: " + prisStandard + " prisvinter: " + prisVinter + " prisSommer: " + prisSommer;
     }
-    
-    
+
 }
