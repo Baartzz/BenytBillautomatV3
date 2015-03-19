@@ -2,7 +2,6 @@ package automat;
 
 import java.util.ArrayList;
 import java.io.*;
-
 public class BenytBilletautomat {
 
     public static void main(String[] arg) throws IOException {
@@ -13,49 +12,47 @@ public class BenytBilletautomat {
         System.out.println();
 
         boolean startup = false;
-        Billetautomat automat = new Billetautomat("Start", 0, 0, 0);
+        Billetautomat automat = new Billetautomat ("Start",0,0,0);
         ArrayList<Billetautomat> Billetter = Billetter = new ArrayList<Billetautomat>();
         int beløb;
-
-        BufferedReader ind = new BufferedReader(new FileReader("billettyper.txt"));
+        
+        BufferedReader ind = new BufferedReader (new FileReader("billettyper.txt"));
         String linje = ind.readLine();
-
-        while (linje != null) {
+        
+        while(linje != null){
             String[] bidder = linje.split(" ");
-            Billetter.add(new Billetautomat(bidder[0], Integer.parseInt(bidder[1]), Integer.parseInt(bidder[2]), Integer.parseInt(bidder[3])));
+            Billetter.add(new Billetautomat(bidder[0],Integer.parseInt(bidder[1]),Integer.parseInt(bidder[2]),Integer.parseInt(bidder[3])));
             linje = ind.readLine();
         }
         startup = true;
-
-        /* while (!startup) {
-         System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
+        
+       /* while (!startup) {
+            System.out.print("Indtast navn på den billet du vil lave, afslut med enter: ");
             
-         String navn =tastatur.nextLine();
+            String navn =tastatur.nextLine();
             
-         if (navn.equals("")) {
-         startup = true;
+            if (navn.equals("")) {
+                startup = true;
 
                
-         } else {
-         System.out.print("Indtast standard pris: ");
-         int standardPris = tastatur.nextInt();
-         System.out.print("Indtast sommer pris: ");
-         int sommerPris = tastatur.nextInt();
-         System.out.print("Indtast vinter pris: ");
-         int vinterPris = tastatur.nextInt();
-         String temp = tastatur.nextLine();
+            } else {
+            System.out.print("Indtast standard pris: ");
+            int standardPris = tastatur.nextInt();
+            System.out.print("Indtast sommer pris: ");
+            int sommerPris = tastatur.nextInt();
+            System.out.print("Indtast vinter pris: ");
+            int vinterPris = tastatur.nextInt();
+            String temp = tastatur.nextLine();
             
-         Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
+            Billetter.add(new Billetautomat(navn, standardPris, sommerPris, vinterPris));
 
-         }
-         }*/
+            }
+        }*/
         while (startup) {
             if (!automat.erMontør()) {
                 System.out.println("-----------------------------------------------");
                 System.out.println("Der er følgende billeter til rådighed: ");
-                for (int i = 0; i < Billetter.size(); i++) {
-                    System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisStandard());
-                }
+                for(int i = 0; i < Billetter.size(); i++) System.out.println(Billetter.get(i).getBilletNavn() + " pris: " + Billetter.get(i).getPrisStandard());
                 System.out.println("Balancen er på " + automat.getBalance() + " kroner");
                 System.out.println();
                 System.out.println("Tast 1 for at indbetale penge");
@@ -133,6 +130,6 @@ public class BenytBilletautomat {
                     break;
             }
         }
-
+        
     }
-}
+   }
