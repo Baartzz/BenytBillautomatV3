@@ -1,0 +1,4 @@
+Barn 10 14 18
+Voksen 14 18 22
+Pensionist 12 16 20
+Cykel 8 10 12
