@@ -15,15 +15,27 @@ public class BenytAutomat extends JFrame{
 
     
 
-     public BenytAutomat(){
-          GUI_master master = new GUI_master();
-     }
+     
+         
+         
+         Billetautomat automat = new Billetautomat();
+     
     /**
      * @param args the command line arguments
      */
+     
+    
+     
+     
         public static void main(String[] args) {
-        
-       
+         GUI_master master = new GUI_master();
+         
+         System.out.println("Her");
+         while(true){
+             
+         }
+      
+         
         
         
     }
