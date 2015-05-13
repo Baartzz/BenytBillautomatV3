@@ -28,21 +28,21 @@ public class GUI_master extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        gui_Hovedmenu1 = new automat.GUI_hovedmenu();
-        gUI_IndbetalP1 = new automat.GUI_IndbetalP();
-        gUI_billettype1 = new automat.GUI_billettype();
-        gUI_printB1 = new automat.GUI_printB();
-        gUI_mLogin1 = new automat.GUI_mLogin();
-        gUI_mM1 = new automat.GUI_mM();
+        gUI_hovedmenu1 = new automat.GUI_hovedmenu();
+        gUI_mLogin2 = new automat.GUI_mLogin();
+        gUI_billettype2 = new automat.GUI_billettype();
+        gUI_IndbetalP2 = new automat.GUI_IndbetalP();
+        gUI_mM2 = new automat.GUI_mM();
+        gUI_printB2 = new automat.GUI_printB();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addTab("Hovedmenu", gui_Hovedmenu1);
-        jTabbedPane1.addTab("Indbetal", gUI_IndbetalP1);
-        jTabbedPane1.addTab("Billettype", gUI_billettype1);
-        jTabbedPane1.addTab("Print", gUI_printB1);
-        jTabbedPane1.addTab("Login", gUI_mLogin1);
-        jTabbedPane1.addTab("Admin menu", gUI_mM1);
+        jTabbedPane1.addTab("Hovedmenu", gUI_hovedmenu1);
+        jTabbedPane1.addTab("Montør login", gUI_mLogin2);
+        jTabbedPane1.addTab("Billettype", gUI_billettype2);
+        jTabbedPane1.addTab("Indbetal penge", gUI_IndbetalP2);
+        jTabbedPane1.addTab("Montør menu", gUI_mM2);
+        jTabbedPane1.addTab("Print billet", gUI_printB2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,12 +97,12 @@ public class GUI_master extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private automat.GUI_IndbetalP gUI_IndbetalP1;
-    private automat.GUI_billettype gUI_billettype1;
-    private automat.GUI_mLogin gUI_mLogin1;
-    private automat.GUI_mM gUI_mM1;
-    private automat.GUI_printB gUI_printB1;
-    private automat.GUI_hovedmenu gui_Hovedmenu1;
+    private automat.GUI_IndbetalP gUI_IndbetalP2;
+    private automat.GUI_billettype gUI_billettype2;
+    private automat.GUI_hovedmenu gUI_hovedmenu1;
+    private automat.GUI_mLogin gUI_mLogin2;
+    private automat.GUI_mM gUI_mM2;
+    private automat.GUI_printB gUI_printB2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

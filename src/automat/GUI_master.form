@@ -41,7 +41,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Component class="automat.GUI_hovedmenu" name="gui_Hovedmenu1">
+        <Component class="automat.GUI_hovedmenu" name="gUI_hovedmenu1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Hovedmenu">
@@ -50,16 +50,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="automat.GUI_IndbetalP" name="gUI_IndbetalP1">
+        <Component class="automat.GUI_mLogin" name="gUI_mLogin2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Indbetal">
-                <Property name="tabTitle" type="java.lang.String" value="Indbetal"/>
+              <JTabbedPaneConstraints tabName="Mont&#xf8;r login">
+                <Property name="tabTitle" type="java.lang.String" value="Mont&#xf8;r login"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="automat.GUI_billettype" name="gUI_billettype1">
+        <Component class="automat.GUI_billettype" name="gUI_billettype2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Billettype">
@@ -68,29 +68,29 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="automat.GUI_printB" name="gUI_printB1">
+        <Component class="automat.GUI_IndbetalP" name="gUI_IndbetalP2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Print">
-                <Property name="tabTitle" type="java.lang.String" value="Print"/>
+              <JTabbedPaneConstraints tabName="Indbetal penge">
+                <Property name="tabTitle" type="java.lang.String" value="Indbetal penge"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="automat.GUI_mLogin" name="gUI_mLogin1">
+        <Component class="automat.GUI_mM" name="gUI_mM2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Login">
-                <Property name="tabTitle" type="java.lang.String" value="Login"/>
+              <JTabbedPaneConstraints tabName="Mont&#xf8;r menu">
+                <Property name="tabTitle" type="java.lang.String" value="Mont&#xf8;r menu"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="automat.GUI_mM" name="gUI_mM1">
+        <Component class="automat.GUI_printB" name="gUI_printB2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Admin menu">
-                <Property name="tabTitle" type="java.lang.String" value="Admin menu"/>
+              <JTabbedPaneConstraints tabName="Print billet">
+                <Property name="tabTitle" type="java.lang.String" value="Print billet"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
