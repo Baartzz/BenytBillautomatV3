@@ -11,33 +11,40 @@ import javax.swing.*;
  *
  * @author Thomas Elbo
  */
-public class BenytAutomat extends JFrame{
+public class BenytAutomat{
 
-    
 
-     
-         
-         
-         Billetautomat automat = new Billetautomat();
-     
-    /**
-     * @param args the command line arguments
-     */
-     
-    
-     
-     
-        public static void main(String[] args) {
-         GUI_master master = new GUI_master();
-         
-         System.out.println("Her");
-         while(true){
-             
-         }
-      
-         
-        
-        
-    }
-    
+	private Billetautomat automat;
+	private GUI_master    master;
+
+	/**
+	 * @param args the command line arguments
+	 */
+
+
+
+
+	public static void main(String[] args) {
+		new BenytAutomat(new GUI_master(), new Billetautomat());
+	}
+	
+	public BenytAutomat(GUI_master GUI, Billetautomat billetAutomat)
+	{
+		automat = billetAutomat;
+		master  = GUI;
+		
+		run();
+	}
+	
+	public void run()
+	{
+            master.setIndex(2);
+		while (true)
+		{
+			
+		}
+	}
+
+
 }
+

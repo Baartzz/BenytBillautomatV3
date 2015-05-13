@@ -11,6 +11,9 @@ package automat;
  */
 public class GUI_master extends javax.swing.JFrame {
 
+    public void setIndex(int i){
+        this.setIndex();
+    }
     /**
      * Creates new form GUI_master
      */
@@ -41,13 +44,16 @@ public class GUI_master extends javax.swing.JFrame {
         //</editor-fold>
 
         
+       
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new GUI_master().setVisible(true);
+//            }
         
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI_master().setVisible(true);
-            }
-        });
+        
+//        });
+        this.setVisible(true);
         
         
     }
@@ -113,3 +119,4 @@ public class GUI_master extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
+
