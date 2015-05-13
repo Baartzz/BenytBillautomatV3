@@ -22,7 +22,7 @@ public class Billetautomat {
 
     ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
     Billettyper Billet = new Billettyper(null, 0, 0, 0);
-    ArrayList<Integer> ShoppingCart = new ArrayList<Integer>();
+    ArrayList<Billettyper> ShoppingCart = new ArrayList<Billettyper>();
 
     /**
      * Laver en Billetautomat uden argumenter og uden billetter
@@ -32,7 +32,7 @@ public class Billetautomat {
         antalBilletterSolgt = 0;
         totalSolgt = 0;
         loadTickets();
-        System.out.println("Her");
+    
 
     }
     public void loadTickets() throws IOException{
@@ -62,7 +62,7 @@ public class Billetautomat {
      */
     public void createTicket(String name, int pris1, int pris2, int pris3) {
         Billetter.add(new Billettyper(name, pris1, pris2, pris3));
-        System.out.println(name);
+        
     }
 
     /**
@@ -129,15 +129,16 @@ public class Billetautomat {
         return Billetter.size();
     }
 
+    
     /**
      * Lægger en billet i indkøbskurven
      *
      * @param i
      * @param pris
      */
-    public void ShoppingCartAdd(int i, int pris) {
-        ShoppingCart.add(i);
-        KurvTotal = KurvTotal + pris;
+    public void ShoppingCartAdd(Billettyper b) {
+        ShoppingCart.add(b);
+        KurvTotal = KurvTotal + b.getPrisStandard();
     }
 
     /**
@@ -160,8 +161,8 @@ public class Billetautomat {
      * Printer indkøbskurvens indhold ud som tekst
      */
     public void ShoppingCartContains() {
-        for (Integer value : ShoppingCart) {
-            System.out.print(getBilletNavn(value) + " | ");
+        for (Billettyper value : ShoppingCart) {
+            System.out.print(value.getBilletNavn() + " | ");
 
         }
         System.out.println("");
@@ -180,8 +181,8 @@ public class Billetautomat {
      * Returnerer den billet der lægger i indkøbskurven på den givne plads
      *
      */
-    public int ShoppingCartItem(int i) {
-        return ShoppingCart.get(i);
+    public String ShoppingCartItem(int i) {
+        return ShoppingCart.get(i).getBilletNavn();
     }
 
     /**
@@ -204,15 +205,15 @@ public class Billetautomat {
      * udskrivBillet
      */
     public void printAllTickets() {
-        for (Integer value : ShoppingCart) {
+        for (Billettyper value : ShoppingCart) {
             if (årstid == 0) {
-                udskrivBillet(getBilletNavn(value), getPrisStandard(value));
+                udskrivBillet(value.getBilletNavn(), value.getPrisStandard());
             }
             if (årstid == 1) {
-                udskrivBillet(getBilletNavn(value), getPrisSommer(value));
+                udskrivBillet(value.getBilletNavn(), value.getPrisSommer());
             }
             if (årstid == 2) {
-                udskrivBillet(getBilletNavn(value), getPrisVinter(value));
+                udskrivBillet(value.getBilletNavn(), value.getPrisVinter());
             }
 
         }

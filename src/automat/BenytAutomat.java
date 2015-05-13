@@ -42,7 +42,7 @@ public class BenytAutomat implements ActionListener{
 	
 	public void run()
 	{
-            
+                
 		while (true)
 		{
 		

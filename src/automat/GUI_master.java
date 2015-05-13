@@ -72,10 +72,10 @@ public class GUI_master extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         gUI_mLogin2 = new automat.GUI_mLogin();
-        gUI_billettype2 = new automat.GUI_billettype(BA);
+        gUI_billettype2 = new automat.GUI_billettype(BA, jTabbedPane1);
         gUI_IndbetalP2 = new automat.GUI_IndbetalP();
         gUI_mM2 = new automat.GUI_mM();
-        gUI_printB2 = new automat.GUI_printB();
+        gUI_printB2 = new automat.GUI_printB(BA, jTabbedPane1);
         gUI_hovedmenu1 = new automat.GUI_hovedmenu(jTabbedPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,7 +111,9 @@ public class GUI_master extends javax.swing.JFrame {
      
                 }
     
-   
+    public void updatePrintB(){
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.GUI_IndbetalP gUI_IndbetalP2;
     private automat.GUI_billettype gUI_billettype2;

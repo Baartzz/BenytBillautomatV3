@@ -5,19 +5,30 @@
  */
 package automat;
 
+import java.util.ArrayList;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author Thomas
  */
 public class GUI_printB extends javax.swing.JPanel {
-
+    Billetautomat BA;
+    JTabbedPane jTab;
+    
+    
+    
     /**
      * Creates new form GUI_printB
      */
-    public GUI_printB() {
+    public GUI_printB(Billetautomat BilletA, JTabbedPane jtb) {
         initComponents();
+        BA = BilletA;
+        jTab = jtb;
+        
+                
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,7 +141,7 @@ public class GUI_printB extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton17;
     private javax.swing.JLabel jLabel12;
