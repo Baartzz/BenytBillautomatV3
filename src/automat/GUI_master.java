@@ -5,16 +5,22 @@
  */
 package automat;
 
+import java.io.IOException;
+
 /**
  *
  * @author Thomas
  */
 public class GUI_master extends javax.swing.JFrame {
-
+    Billetautomat BA = new Billetautomat();
+    
+    public void setIndex(int i){
+        jTabbedPane1.setSelectedIndex(i);
+    }
     /**
      * Creates new form GUI_master
      */
-    public GUI_master() {
+    public GUI_master() throws IOException {
         initComponents();
         
          /* Set the Nimbus look and feel */
@@ -41,13 +47,16 @@ public class GUI_master extends javax.swing.JFrame {
         //</editor-fold>
 
         
+       
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new GUI_master().setVisible(true);
+//            }
         
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUI_master().setVisible(true);
-            }
-        });
+        
+//        });
+        this.setVisible(true);
         
         
     }
@@ -63,11 +72,11 @@ public class GUI_master extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         gUI_mLogin2 = new automat.GUI_mLogin();
-        gUI_billettype2 = new automat.GUI_billettype();
+        gUI_billettype2 = new automat.GUI_billettype(BA);
         gUI_IndbetalP2 = new automat.GUI_IndbetalP();
         gUI_mM2 = new automat.GUI_mM();
         gUI_printB2 = new automat.GUI_printB();
-        gUI_hovedmenu1 = new automat.GUI_hovedmenu();
+        gUI_hovedmenu1 = new automat.GUI_hovedmenu(jTabbedPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,3 +122,4 @@ public class GUI_master extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
+
