@@ -8,7 +8,9 @@ import java.io.*;
  * laves nogle ændringer
  */
 public class Billetautomat {
-
+    File billettyper = new File("billettyper.txt");
+    
+    
     private int billetpris;    // Prisen for én billet.
     private int balance; // Hvor mange penge kunden p.t. har puttet i automaten
     private int årstid;
@@ -25,13 +27,26 @@ public class Billetautomat {
     /**
      * Laver en Billetautomat uden argumenter og uden billetter
      */
-    public Billetautomat() {
+    public Billetautomat() throws IOException {
         balance = 0;
         antalBilletterSolgt = 0;
         totalSolgt = 0;
+        loadTickets();
 
     }
+    public void loadTickets() throws IOException{
+        if (billettyper.exists()) {
+            BufferedReader ind = new BufferedReader(new FileReader(billettyper));
+            String linje = ind.readLine();
 
+            while (linje != null) {
+                String[] bidder = linje.split(" ");
+                createTicket(bidder[0], Integer.parseInt(bidder[1]), Integer.parseInt(bidder[2]), Integer.parseInt(bidder[3]));
+                linje = ind.readLine();
+            }
+            
+    }
+    }
     /**
      * Laver en billet i billetautomaten med navn, standard pris, sommer pris og
      * vinter pris

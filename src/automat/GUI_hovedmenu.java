@@ -5,21 +5,28 @@
  */
 package automat;
 
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author Thomas Elbo
  */
 public class GUI_hovedmenu extends javax.swing.JPanel {
 
-    
+    JTabbedPane b;
     
     /**
      * Creates new form GUI_hovedmenu
      */
-    public GUI_hovedmenu() {
+    public GUI_hovedmenu(JTabbedPane a) {
+         b = a;
         initComponents();
+        
     }
 
+    public void actionN(){
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,25 +56,45 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
         jButton6.setToolTipText("");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnIndbetalP(evt);
             }
         });
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton7.setText("Vælg Billetter");
         jButton7.setToolTipText("");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVaelgB(evt);
+            }
+        });
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setText("Print Billetter ");
         jButton8.setToolTipText("");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintB(evt);
+            }
+        });
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton9.setText("Penge Retur");
         jButton9.setToolTipText("");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPengeR(evt);
+            }
+        });
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton10.setText("Montør Menu");
         jButton10.setToolTipText("");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMM(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
@@ -147,11 +174,30 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnIndbetalP(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndbetalP
         System.out.println("Indbetal blev trykket");
+        b.setSelectedIndex(3);
         
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+        
+        
+    }//GEN-LAST:event_btnIndbetalP
+
+    private void btnVaelgB(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaelgB
+        b.setSelectedIndex(1);
+    }//GEN-LAST:event_btnVaelgB
+
+    private void btnPrintB(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintB
+        b.setSelectedIndex(4);
+    }//GEN-LAST:event_btnPrintB
+
+    private void btnPengeR(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPengeR
+        
+    }//GEN-LAST:event_btnPengeR
+
+    private void btnMM(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMM
+        b.setSelectedIndex(0);
+    }//GEN-LAST:event_btnMM
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

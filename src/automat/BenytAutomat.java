@@ -5,13 +5,17 @@
  */
 package automat;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.*;
 
 /**
  *
  * @author Thomas Elbo
  */
-public class BenytAutomat{
+public class BenytAutomat implements ActionListener{
 
 
 	private Billetautomat automat;
@@ -21,10 +25,10 @@ public class BenytAutomat{
 	 * @param args the command line arguments
 	 */
 
+        
 
 
-
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new BenytAutomat(new GUI_master(), new Billetautomat());
 	}
 	
@@ -38,12 +42,19 @@ public class BenytAutomat{
 	
 	public void run()
 	{
-            master.setIndex(2);
+            
 		while (true)
 		{
-			
+		
 		}
 	}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
+        
 
 
 }
