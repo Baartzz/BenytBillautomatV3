@@ -11,6 +11,8 @@ package automat;
  */
 public class GUI_hovedmenu extends javax.swing.JPanel {
 
+    
+    
     /**
      * Creates new form GUI_hovedmenu
      */
@@ -45,6 +47,11 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton6.setText("Indbetal Penge");
         jButton6.setToolTipText("");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton7.setText("Vælg Billetter");
@@ -139,6 +146,12 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
             .addComponent(Hovedmenu, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        System.out.println("Indbetal blev trykket");
+        
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
