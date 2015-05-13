@@ -7,7 +7,7 @@ package automat;
 
 /**
  *
- * @author Thomas M. Elbo test
+ * @author Thomas M. Elbo sdak
  */
 public class Billettyper {
 
