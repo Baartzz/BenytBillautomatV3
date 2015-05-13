@@ -12,7 +12,8 @@ import java.io.IOException;
  * @author Thomas
  */
 public class GUI_master extends javax.swing.JFrame {
-    Billetautomat BA;
+    Billetautomat BA = new Billetautomat();
+    
     public void setIndex(int i){
         jTabbedPane1.setSelectedIndex(i);
     }
@@ -21,7 +22,7 @@ public class GUI_master extends javax.swing.JFrame {
      */
     public GUI_master() throws IOException {
         initComponents();
-        BA = new Billetautomat();
+        
          /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

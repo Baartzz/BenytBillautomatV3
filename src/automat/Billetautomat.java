@@ -32,9 +32,11 @@ public class Billetautomat {
         antalBilletterSolgt = 0;
         totalSolgt = 0;
         loadTickets();
+        System.out.println("Her");
 
     }
     public void loadTickets() throws IOException{
+        
         if (billettyper.exists()) {
             BufferedReader ind = new BufferedReader(new FileReader(billettyper));
             String linje = ind.readLine();
@@ -45,7 +47,9 @@ public class Billetautomat {
                 linje = ind.readLine();
             }
             
-    }
+    }else{
+            System.out.println("Kan ikke finde");
+        }
     }
     /**
      * Laver en billet i billetautomaten med navn, standard pris, sommer pris og
@@ -58,6 +62,7 @@ public class Billetautomat {
      */
     public void createTicket(String name, int pris1, int pris2, int pris3) {
         Billetter.add(new Billettyper(name, pris1, pris2, pris3));
+        System.out.println(name);
     }
 
     /**

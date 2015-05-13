@@ -155,7 +155,8 @@ String str = "2";
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        jTextArea4.setText(jTextArea4.getText() + "\r\n" + BA.Billetter.get(0).getBilletNavn());
+        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(0).getBilletNavn() + "\r\n");
+        
     }//GEN-LAST:event_jButton14ActionPerformed
 
 
