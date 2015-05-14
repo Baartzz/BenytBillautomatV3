@@ -14,9 +14,7 @@ import java.io.IOException;
 public class GUI_master extends javax.swing.JFrame {
     Billetautomat BA = new Billetautomat();
     
-    public void setIndex(int i){
-        jTabbedPane1.setSelectedIndex(i);
-    }
+    
     /**
      * Creates new form GUI_master
      */
@@ -79,7 +77,7 @@ public class GUI_master extends javax.swing.JFrame {
         gUI_hovedmenu1 = new automat.GUI_hovedmenu(jTabbedPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+ 
         jTabbedPane1.addTab("Montør login", gUI_mLogin2);
         jTabbedPane1.addTab("Billettype", gUI_billettype2);
         jTabbedPane1.addTab("Indbetal penge", gUI_IndbetalP2);
@@ -99,6 +97,8 @@ public class GUI_master extends javax.swing.JFrame {
         );
 
         pack();
+        
+        jTabbedPane1.setSelectedIndex(5);
     }// </editor-fold>//GEN-END:initComponents
 
   

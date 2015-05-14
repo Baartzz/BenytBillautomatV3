@@ -26,6 +26,7 @@ public class GUI_printB extends javax.swing.JPanel {
         BA = BilletA;
         jTab = jtb;
         
+        
                 
     }
     
@@ -80,6 +81,15 @@ public class GUI_printB extends javax.swing.JPanel {
         jTextArea5.setColumns(20);
         jTextArea5.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         jTextArea5.setRows(5);
+        jTextArea5.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTextArea5AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane10.setViewportView(jTextArea5);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -140,6 +150,10 @@ public class GUI_printB extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextArea5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextArea5AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextArea5AncestorAdded
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

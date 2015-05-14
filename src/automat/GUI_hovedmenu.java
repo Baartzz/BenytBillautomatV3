@@ -176,10 +176,7 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
 
     private void btnIndbetalP(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndbetalP
         System.out.println("Indbetal blev trykket");
-        b.setSelectedIndex(2);
-        
-        
-        
+        b.setSelectedIndex(2);      
         
     }//GEN-LAST:event_btnIndbetalP
 
