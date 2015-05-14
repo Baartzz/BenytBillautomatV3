@@ -5,17 +5,22 @@
  */
 package automat;
 
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author Thomas
  */
 public class GUI_mM extends javax.swing.JPanel {
-
+    Billetautomat BA;
+    JTabbedPane jTab;
     /**
      * Creates new form GUI_mM
      */
-    public GUI_mM() {
+    public GUI_mM(Billetautomat B, JTabbedPane jtp) {
         initComponents();
+        BA = B;
+        jTab = jtp;
     }
 
     /**
@@ -54,6 +59,11 @@ public class GUI_mM extends javax.swing.JPanel {
         jButton21.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton21.setText("Log ud");
         jButton21.setToolTipText("");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,6 +95,11 @@ public class GUI_mM extends javax.swing.JPanel {
                 .addContainerGap(186, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        BA.montørLogin(" ");
+        jTab.setSelectedIndex(5);
+    }//GEN-LAST:event_jButton21ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

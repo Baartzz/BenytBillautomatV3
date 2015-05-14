@@ -44,6 +44,16 @@ public class GUI_mLogin extends javax.swing.JPanel {
         jLabel16.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jPasswordField1.setText("Enter Password");
+        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordField1MouseClicked(evt);
+            }
+        });
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeyPress(evt);
+            }
+        });
 
         jButton22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton22.setText("Enter");
@@ -91,6 +101,14 @@ public class GUI_mLogin extends javax.swing.JPanel {
             jTab.setSelectedIndex(5);
         }
     }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void KeyPress(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeyPress
+        
+    }//GEN-LAST:event_KeyPress
+
+    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+       jPasswordField1.setText("");
+    }//GEN-LAST:event_jPasswordField1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -73,7 +73,7 @@ public class GUI_master extends javax.swing.JFrame {
         gUI_mLogin2 = new automat.GUI_mLogin(jTabbedPane1, BA);
         gUI_billettype2 = new automat.GUI_billettype(BA, jTabbedPane1);
         gUI_IndbetalP2 = new automat.GUI_IndbetalP(BA);
-        gUI_mM2 = new automat.GUI_mM();
+        gUI_mM2 = new automat.GUI_mM(BA, jTabbedPane1);
         gUI_printB2 = new automat.GUI_printB(BA, jTabbedPane1);
         gUI_hovedmenu1 = new automat.GUI_hovedmenu(jTabbedPane1);
 

@@ -142,7 +142,9 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
        jTextPane3.setEditable(true);
         try{
+            if(Integer.parseInt(jTextField1.getText()) > 0){
         BA.indsætPenge(Integer.parseInt(jTextField1.getText()));
+            }
        }catch(Exception E){
            
        }
