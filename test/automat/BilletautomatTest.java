@@ -23,11 +23,7 @@ public class BilletautomatTest extends TestCase {
         System.out.println("getBilletNavn");
         Billetautomat automat = new Billetautomat();
 
-        automat.createTicket("Barn", 10, 14, 18);
-        automat.createTicket("voksen", 14, 18, 22);
-        automat.createTicket("Pensionist", 12, 16, 20);
-        automat.createTicket("Cykel", 8, 10, 12);
-
+        
         assertEquals("Pensionist", automat.getBilletNavn(2));
 
         assertEquals("Barn", automat.getBilletNavn(0));
