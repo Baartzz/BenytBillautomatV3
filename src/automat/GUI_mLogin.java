@@ -108,6 +108,7 @@ public class GUI_mLogin extends javax.swing.JPanel {
         String pw = String.valueOf(jPasswordField1.getPassword());
         if(BA.montørLogin(pw)){
             jTab.setSelectedIndex(3);
+            jPasswordField1.setText("PressPassword");
             System.out.println("korrekt");
             System.out.println(pw);
         }else{
