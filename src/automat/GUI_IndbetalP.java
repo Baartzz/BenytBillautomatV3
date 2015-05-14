@@ -14,8 +14,10 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
     /**
      * Creates new form GUI_IndbetalP
      */
-    public GUI_IndbetalP() {
+    Billetautomat BA;
+    public GUI_IndbetalP(Billetautomat b) {
         initComponents();
+        BA = b;
     }
 
     /**
@@ -64,6 +66,11 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
 
         jButton15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton15.setText("Enter");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Indkøbskurv");
@@ -126,6 +133,15 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+       try{
+        BA.indsætPenge(Integer.parseInt(jTextField1.getText()));
+       }catch(Exception E){
+           
+       }
+        jTextPane3.setText(Integer.toString(BA.getBalance()));
+    }//GEN-LAST:event_jButton15ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
