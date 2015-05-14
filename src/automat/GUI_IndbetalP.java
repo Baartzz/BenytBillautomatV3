@@ -15,9 +15,14 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
      * Creates new form GUI_IndbetalP
      */
     Billetautomat BA;
+    GUI_master master;
+    
     public GUI_IndbetalP(Billetautomat b) {
         initComponents();
         BA = b;
+        jTextPane3.setEditable(false);
+        
+        
     }
 
     /**
@@ -135,12 +140,14 @@ public class GUI_IndbetalP extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-       try{
+       jTextPane3.setEditable(true);
+        try{
         BA.indsætPenge(Integer.parseInt(jTextField1.getText()));
        }catch(Exception E){
            
        }
         jTextPane3.setText(Integer.toString(BA.getBalance()));
+        jTextPane3.setEditable(false);
     }//GEN-LAST:event_jButton15ActionPerformed
 
 

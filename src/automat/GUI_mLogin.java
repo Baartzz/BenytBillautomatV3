@@ -5,17 +5,23 @@
  */
 package automat;
 
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author Thomas
  */
 public class GUI_mLogin extends javax.swing.JPanel {
-
+    Billetautomat BA;
+    JTabbedPane jTab;
     /**
      * Creates new form GUI_mLogin
      */
-    public GUI_mLogin() {
+    public GUI_mLogin(JTabbedPane jtb,Billetautomat B) {
         initComponents();
+        jTab = jtb;
+        BA  = B;
+        jPasswordField1.setEditable(true);
     }
 
     /**
@@ -42,6 +48,11 @@ public class GUI_mLogin extends javax.swing.JPanel {
         jButton22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton22.setText("Enter");
         jButton22.setToolTipText("");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,6 +78,19 @@ public class GUI_mLogin extends javax.swing.JPanel {
                 .addContainerGap(401, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        
+        String pw = String.valueOf(jPasswordField1.getPassword());
+        if(BA.montørLogin(pw)){
+            jTab.setSelectedIndex(3);
+            System.out.println("korrekt");
+            System.out.println(pw);
+        }else{
+            System.out.println(pw);
+            jTab.setSelectedIndex(5);
+        }
+    }//GEN-LAST:event_jButton22ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

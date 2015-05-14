@@ -16,6 +16,8 @@ public class GUI_billettype extends javax.swing.JPanel {
 
     Billetautomat BA;
     JTabbedPane jTab;
+    GUI_master master;
+    
     /**
      * Creates new form GUI_billettype
      */
@@ -23,8 +25,16 @@ public class GUI_billettype extends javax.swing.JPanel {
         initComponents();
         BA = preBA;
         jTab = jtb;
+        
+       
+        jTextArea4.setEditable(false);
+        jTextPane4.setEditable(false);
     }
 
+    public void updMaster(GUI_master m){
+        master = m;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,34 +197,41 @@ public class GUI_billettype extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+       jTextArea4.setEditable(true);
         jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(0).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(0));
         System.out.println(BA.Billetter.get(0).getBilletNavn() + " added to cart!");
+        jTextArea4.setEditable(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        jTextArea4.setEditable(true);
         jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(1).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(1));
         System.out.println(BA.Billetter.get(1).getBilletNavn() + " added to cart!");
+        jTextArea4.setEditable(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-         jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(2).getBilletNavn() + "\r\n");
+        jTextArea4.setEditable(true);
+        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(2).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(2));
         System.out.println(BA.Billetter.get(2).getBilletNavn() + " added to cart!");
+        jTextArea4.setEditable(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-         jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(3).getBilletNavn() + "\r\n");
+        jTextArea4.setEditable(true);
+        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(3).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(3));
         System.out.println(BA.Billetter.get(3).getBilletNavn() + " added to cart!");
+        jTextArea4.setEditable(false);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void btnBetal(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBetal
-        jTab.setSelectedIndex(4);
-        
-        
-        
+      System.out.println(BA.Billetter.get(0).getBilletNavn());
+    
+     jTab.setSelectedIndex(4);     
     }//GEN-LAST:event_btnBetal
 
 

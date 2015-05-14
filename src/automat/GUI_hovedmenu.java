@@ -21,6 +21,8 @@ public class GUI_hovedmenu extends javax.swing.JPanel {
     public GUI_hovedmenu(JTabbedPane a) {
          b = a;
         initComponents();
+        jTextArea2.setEditable(false);
+        jTextPane2.setEditable(false);
         
     }
 

@@ -256,14 +256,17 @@ public class Billetautomat {
      *
      * Montørlogin - kræver adgangskode
      */
-    void montørLogin(String adgangskode) {
+    public boolean montørLogin(String adgangskode) {
         if ("1234".equals(adgangskode)) {
             montørtilstand = true;
+            
             System.out.println("Montørtilstand aktiveret");
             System.out.println("Du kan nu angive billetpris");
+            return true;
         } else {
             montørtilstand = false;
             System.out.println("Montørtilstand deaktiveret");
+            return false;
         }
     }
 

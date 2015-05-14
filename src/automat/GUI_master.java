@@ -13,7 +13,8 @@ import java.io.IOException;
  */
 public class GUI_master extends javax.swing.JFrame {
     Billetautomat BA = new Billetautomat();
-    
+   
+    private GUI_master    master;
     
     /**
      * Creates new form GUI_master
@@ -58,7 +59,7 @@ public class GUI_master extends javax.swing.JFrame {
         
         
     }
-    
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,7 +70,7 @@ public class GUI_master extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        gUI_mLogin2 = new automat.GUI_mLogin();
+        gUI_mLogin2 = new automat.GUI_mLogin(jTabbedPane1, BA);
         gUI_billettype2 = new automat.GUI_billettype(BA, jTabbedPane1);
         gUI_IndbetalP2 = new automat.GUI_IndbetalP(BA);
         gUI_mM2 = new automat.GUI_mM();
@@ -102,6 +103,7 @@ public class GUI_master extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
   
+    
     /**
      * @param args the command line arguments
      */
@@ -111,9 +113,7 @@ public class GUI_master extends javax.swing.JFrame {
      
                 }
     
-    public void updatePrintB(){
-        
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private automat.GUI_IndbetalP gUI_IndbetalP2;
     private automat.GUI_billettype gUI_billettype2;

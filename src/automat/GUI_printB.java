@@ -15,7 +15,7 @@ import javax.swing.JTabbedPane;
 public class GUI_printB extends javax.swing.JPanel {
     Billetautomat BA;
     JTabbedPane jTab;
-    
+    GUI_master master;
     
     
     /**
@@ -25,9 +25,24 @@ public class GUI_printB extends javax.swing.JPanel {
         initComponents();
         BA = BilletA;
         jTab = jtb;
+  
+        
+        jTextArea5.setEditable(false);
+        jTextArea6.setEditable(false);
+        jTextPane5.setEditable(false);
+        
         
         
                 
+    }
+   
+    public void updateDatabase(Billetautomat BilletA){
+        BA = BilletA;
+        jTextArea6.setEditable(true);
+        for(int i = 0; i < BA.ShoppingCart.size(); i++){
+            jTextArea6.setText(jTextArea6.getText() + BA.ShoppingCartItem(i) + "\r\n");
+        }
+        jTextArea6.setEditable(false);
     }
     
     /**
