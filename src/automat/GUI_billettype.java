@@ -17,7 +17,7 @@ public class GUI_billettype extends javax.swing.JPanel {
     Billetautomat BA;
     JTabbedPane jTab;
     GUI_master master;
-    
+
     /**
      * Creates new form GUI_billettype
      */
@@ -25,16 +25,15 @@ public class GUI_billettype extends javax.swing.JPanel {
         initComponents();
         BA = preBA;
         jTab = jtb;
-        
-       
-        jTextArea4.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(false);
         jTextPane4.setEditable(false);
     }
 
-    public void updMaster(GUI_master m){
+    public void updMaster(GUI_master m) {
         master = m;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,10 +54,12 @@ public class GUI_billettype extends javax.swing.JPanel {
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Vælg Antal");
@@ -117,11 +118,6 @@ public class GUI_billettype extends javax.swing.JPanel {
         jLabel10.setText("Indkøbskurv");
         jLabel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        jTextArea4.setRows(5);
-        jScrollPane8.setViewportView(jTextArea4);
-
         jButton1.setActionCommand("Betal");
         jButton1.setLabel("Betal");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +132,15 @@ public class GUI_billettype extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(10);
+        jTextArea2.setRows(1);
+        jTextArea2.setTabSize(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,9 +167,11 @@ public class GUI_billettype extends javax.swing.JPanel {
                             .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addGap(64, 64, 64))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +183,6 @@ public class GUI_billettype extends javax.swing.JPanel {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,12 +192,14 @@ public class GUI_billettype extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -209,45 +217,56 @@ public class GUI_billettype extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-       jTextArea4.setEditable(true);
-        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(0).getBilletNavn() + "\r\n");
+        jTextArea1.setEditable(true);
+        jTextArea1.setText(jTextArea1.getText() + BA.Billetter.get(0).getPrisStandard() + " " + BA.Billetter.get(0).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(0));
         System.out.println(BA.Billetter.get(0).getBilletNavn() + " added to cart!");
-        jTextArea4.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(true);
+        jTextArea2.setText(Integer.toString(BA.ShoppingCartContainsTotal()));
+        jTextArea2.setEditable(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        jTextArea4.setEditable(true);
-        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(1).getBilletNavn() + "\r\n");
+        jTextArea1.setEditable(true);
+        jTextArea1.setText(jTextArea1.getText() + BA.Billetter.get(1).getPrisStandard() + " " + BA.Billetter.get(1).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(1));
         System.out.println(BA.Billetter.get(1).getBilletNavn() + " added to cart!");
-        jTextArea4.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(true);
+        jTextArea2.setText(Integer.toString(BA.ShoppingCartContainsTotal()));
+        jTextArea2.setEditable(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        jTextArea4.setEditable(true);
-        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(2).getBilletNavn() + "\r\n");
+        jTextArea1.setEditable(true);
+        jTextArea1.setText(jTextArea1.getText()+ BA.Billetter.get(2).getPrisStandard() + " " + BA.Billetter.get(2).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(2));
         System.out.println(BA.Billetter.get(2).getBilletNavn() + " added to cart!");
-        jTextArea4.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(true);
+        jTextArea2.setText(Integer.toString(BA.ShoppingCartContainsTotal()));
+        jTextArea2.setEditable(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        jTextArea4.setEditable(true);
-        jTextArea4.setText(jTextArea4.getText() + BA.Billetter.get(3).getBilletNavn() + "\r\n");
+        jTextArea1.setEditable(true);
+        jTextArea1.setText(jTextArea1.getText() + " " + BA.Billetter.get(3).getPrisStandard() + " " + BA.Billetter.get(3).getBilletNavn() + "\r\n");
         BA.ShoppingCartAdd(BA.Billetter.get(3));
         System.out.println(BA.Billetter.get(3).getBilletNavn() + " added to cart!");
-        jTextArea4.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextArea2.setEditable(true);
+        jTextArea2.setText(Integer.toString(BA.ShoppingCartContainsTotal()));
+        jTextArea2.setEditable(false);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void btnBetal(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBetal
-      System.out.println(BA.Billetter.get(0).getBilletNavn());
-    
-     jTab.setSelectedIndex(4);     
+
+        jTab.setSelectedIndex(4);
     }//GEN-LAST:event_btnBetal
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    jTab.setSelectedIndex(5);
+        jTab.setSelectedIndex(5);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -263,9 +282,11 @@ public class GUI_billettype extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextPane jTextPane4;
     // End of variables declaration//GEN-END:variables
 }
