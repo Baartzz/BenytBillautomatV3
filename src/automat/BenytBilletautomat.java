@@ -124,15 +124,7 @@ public class BenytBilletautomat {
                             System.out.println("Hvor mange vil du have?");
                             int antal = tastatur.nextInt();
                             for (int i = 1; i <= antal; i++) {
-                                if (automat.årstid() == 0) {
-                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisStandard(billetkøb));
-                                }
-                                if (automat.årstid() == 1) {
-                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisSommer(billetkøb));
-                                }
-                                if (automat.årstid() == 2) {
-                                    automat.ShoppingCartAdd(billetkøb - 1, automat.getPrisVinter(billetkøb));
-                                }
+                                
                             }
                         } else {
                             System.out.println("Ikke gyldig billet");

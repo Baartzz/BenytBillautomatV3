@@ -5,6 +5,7 @@
  */
 package automat;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import junit.framework.TestCase;
 
@@ -18,7 +19,7 @@ public class BilletautomatTest extends TestCase {
      * Test of getBilletNavn method, of class Billetautomat. Tester om navnene
      * stemmer overens med det index man indtaster.
      */
-    public void testGetBilletNavn() {
+    public void testGetBilletNavn() throws IOException {
         System.out.println("getBilletNavn");
         Billetautomat automat = new Billetautomat();
 
@@ -38,7 +39,7 @@ public class BilletautomatTest extends TestCase {
      * Prøver at hente en billettype der ikke findes, dermed forvents en fejl
      * her.
      */
-    public void testGetBilletForkertNavnOgIndex() {
+    public void testGetBilletForkertNavnOgIndex() throws IOException {
         System.out.println("getBilletForkertNavnOgIndex");
         Billetautomat automat = new Billetautomat();
 
@@ -55,7 +56,7 @@ public class BilletautomatTest extends TestCase {
      * Test of getgetBalance method, of class Billetautomat. Tester om balancen
      * stemmer overens.
      */
-    public void testGetBalance() {
+    public void testGetBalance() throws IOException {
         System.out.println("getBalance");
         Billetautomat automat = new Billetautomat();
 
@@ -70,15 +71,15 @@ public class BilletautomatTest extends TestCase {
      * Test of getShoppingCart method, of class Billetautomat. Tester om det
      * rette antal billetter bliver tilføjet til indkøbskurven (shoppingCart).
      */
-    public void testGetShoppingCart() {
+    public void testGetShoppingCart() throws IOException {
         System.out.println("getShoppingCart");
         Billetautomat automat = new Billetautomat();
-        int pris = 0; //pris er ligegyldig for denne opgave. 
-        ArrayList<Integer> ShoppingCart = new ArrayList<Integer>();
-
+        //int Pris = 0; //pris er ligegyldig for denne opgave. 
+        automat.loadTickets();
+       
         for (int i = 0; i <= 3; i++) {
 
-            automat.ShoppingCartAdd(i, pris);
+            automat.ShoppingCartAdd(automat.Billetter.get(i));
         }
         assertEquals(3, automat.ShoppingCartSize());
 

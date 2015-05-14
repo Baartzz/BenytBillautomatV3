@@ -33,7 +33,7 @@ public class BenytBilletautomatTest extends TestCase {
     public void testMain() throws Exception {
         System.out.println("main");
         String[] arg = null;
-        BenytBilletautomat.main(arg);
+    //    BenytBilletautomat.main(arg);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
