@@ -43,13 +43,7 @@ public class BilletautomatTest extends TestCase {
         System.out.println("getBilletForkertNavnOgIndex");
         Billetautomat automat = new Billetautomat();
 
-        automat.createTicket("Barn", 10, 14, 18);
-        automat.createTicket("voksen", 14, 18, 22);
-        automat.createTicket("Pensionist", 12, 16, 20);
-        automat.createTicket("Cykel", 8, 10, 12);
-
         assertEquals(null, automat.getBilletNavn(4));
-
     }
 
     /**
@@ -60,10 +54,10 @@ public class BilletautomatTest extends TestCase {
         System.out.println("getBalance");
         Billetautomat automat = new Billetautomat();
 
-        int beløb = 10;
+        int beløb = -10;
         automat.indsætPenge(beløb);
 
-        assertEquals(10, automat.getBalance());
+        assertEquals(0, automat.getBalance());
 
     }
 
@@ -74,9 +68,9 @@ public class BilletautomatTest extends TestCase {
     public void testGetShoppingCart() throws IOException {
         System.out.println("getShoppingCart");
         Billetautomat automat = new Billetautomat();
-        //int Pris = 0; //pris er ligegyldig for denne opgave. 
+
         automat.loadTickets();
-       
+
         for (int i = 0; i <= 3; i++) {
 
             automat.ShoppingCartAdd(automat.Billetter.get(i));

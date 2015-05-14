@@ -21,7 +21,7 @@ public class Billetautomat {
     private int totalSolgt;
 
     ArrayList<Billettyper> Billetter = new ArrayList<Billettyper>();
-    Billettyper Billet = new Billettyper(null, 0, 0, 0);
+  //  Billettyper Billet;
     ArrayList<Billettyper> ShoppingCart = new ArrayList<Billettyper>();
 
     /**
@@ -190,7 +190,11 @@ public class Billetautomat {
      * Indsætter et beløb i billetautomaten
      */
     public void indsætPenge(int beløb) {
+        if (beløb < 0){
+        
+        }else{
         balance = balance + beløb;
+        }
     }
 
     /**
